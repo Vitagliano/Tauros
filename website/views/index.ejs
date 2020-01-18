@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%=client.username%></title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/one-page-wonder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/"><%=client.username%></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+
+          <%if(login === 'yes') {%>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Sair</a>
+            </li>
+          <%}%>
+          <%if(login === 'no') {%>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+          <%}%>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead text-center text-white">
+      <div class="masthead-content">
+        <div class="container">
+          <img class="img-fluid bot-avatar rounded-circle" src="<%=client.displayAvatarURL%>" width="200px" height="200px" alt="">
+          <h3 class="masthead-heading mb-0" style="font-size: 3em !important;"><%=client.username%></h3>
+            <br/>
+            <a class="btn" href="<%=invite%>" role="button">
+              <span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </span>
+            Me convide</a>          
+            <a class="btn" href="/login" role="button">
+              <span>
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+              </span>
+            Login</a>
+        </div>
+      </div>
+    </header>
+
+
+
+    
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  </body>
+</html>

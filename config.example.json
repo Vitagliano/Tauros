@@ -1,0 +1,8 @@
+{
+	"BOT_OWNER_ID": "",
+	"BOT_TOKEN": "",
+	"BOT_PREFIX": "!",
+	"CLIENT_SECRET": "",
+	"WEBSITE_URL": "http://localhost:3000",
+	"color": ""
+}
