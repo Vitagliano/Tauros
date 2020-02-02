@@ -11,7 +11,7 @@ async function run(client) {
         presence = presence(client);
     }
 
-    // console.log(`Updating presence to '${presence.name}'`);
+    //console.log(`Updating presence to '${presence.name}'`);
     client.user.setPresence({
         game: presence,
         status: 'online'
@@ -29,16 +29,24 @@ async function run(client) {
  * @type {(DiscordRichPresenceGame|DiscordRichPresenceSupplier)[]}
  */
 const presences = [
+    {
+        name: 'com a galera!',
+        url: 'https://discord.gg/EhjgQ24',
+        type: 0
+    }, {
+        name: 'Para saber meus comandos digite $ajuda',
+        type: 0
+    }, 
     (client) => ({
         name: `${client.users.size} usuários nesta comunidade! YAY`,
-        type: 1
+        type: 0
     }), {
-        name: 'para saber meus comandos use !ajuda',
-        type: 1
+        name: 'um pvp!',
+        type: 0
     }, {
         name: 'Meu criador é o Vitagliano#7027',
         url: 'https://twitter.com/gbrlrusso',
-        type: 1
+        type: 0
     }
 ];
 

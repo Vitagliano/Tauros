@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title><%=client.username%></title>
+    <link
+      rel="shortcut icon"
+      href="<%=client.displayAvatarURL%>"
+      type="image/x-icon"
+    />
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <%- include components/header.ejs %>
+    <section class="commands">
+      <div class="container">
+        <h1>Lista de comandos</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% commands.forEach((command) => { %>
+            <tr>
+              <th class="name" scope="row"><%= `${command.help.name}` %></th>
+              <th><%= `${command.help.category}` %></th>
+              <th><%= `${command.help.description}` %></td>
+              <th><%= `${command.help.usage}` %></td>
+            </tr>
+            <%});%>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,4 +1,5 @@
 module.exports = {
     Guild: require('./guild'),
-    Profile: require('./profile')
+    Profile: require('./profile'),
+    Mute: require('./mute')
 };

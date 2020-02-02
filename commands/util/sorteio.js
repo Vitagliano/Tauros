@@ -82,5 +82,6 @@ exports.run = async (client, message, args, prefix) => {
 
 exports.help = {
   name: "sorteio",
-  aliases: ["giveaway"]
+  aliases: ["giveaway"],
+  category: "Utilidades"
 };

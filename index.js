@@ -4,12 +4,11 @@ const client = new Discord.Client(); //definindo o bot como um novo client
 const c = require("colors");
 const fileUtils = require("./utils/fileUtils");
 
-
 require("./utils/functions")(client);
 
-client.config = require('./config');
+client.config = require("./config");
 
-client.mongoose = require('./utils/mongoose');
+client.mongoose = require("./utils/mongoose");
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -18,7 +17,6 @@ client.aliases = new Discord.Collection();
  * Initialize and start the bot.
  */
 function start() {
-
   console.log(c.cyan("Carregando eventos..."));
   loadEvents("./events");
 

@@ -1,5 +1,5 @@
 body {
-  font-family: 'Lato';
+  font-family: "Lato";
 }
 
 h1,
@@ -8,7 +8,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Catamaran';
+  font-family: "Catamaran";
   font-weight: 800 !important;
 }
 
@@ -54,7 +54,12 @@ header.masthead {
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
   background-color: #363636 !important;
-  background-image: linear-gradient(141deg, #1f191a 0%, #363636 71%, #46403f 100%) !important;
+  background-image: linear-gradient(
+    141deg,
+    #1f191a 0%,
+    #363636 71%,
+    #46403f 100%
+  ) !important;
   color: whitesmoke !important;
   background-position: center center;
   background-attachment: scroll;
@@ -73,7 +78,6 @@ header.masthead .masthead-content .masthead-heading {
 header.masthead .masthead-content .masthead-subheading {
   font-size: 2rem;
 }
-
 
 @media (min-width: 992px) {
   header.masthead {
@@ -97,7 +101,9 @@ header.masthead .masthead-content .masthead-subheading {
   border-color: #ee0979;
 }
 
-.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
   background-color: #bd0760 !important;
   border-color: #bd0760 !important;
 }
@@ -111,7 +117,9 @@ header.masthead .masthead-content .masthead-subheading {
   border-color: #ff6a00;
 }
 
-.btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
+.btn-secondary:active,
+.btn-secondary:focus,
+.btn-secondary:hover {
   background-color: #cc5500 !important;
   border-color: #cc5500 !important;
 }

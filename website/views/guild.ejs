@@ -1,140 +1,667 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title><%=client.username%></title>
-
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/one-page-wonder.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link
+      rel="shortcut icon"
+      href="<%=client.displayAvatarURL%>"
+      type="image/x-icon"
+    />
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
   </head>
 
   <body>
+    <!-- <div id="cursorBlob"></div> -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="/"><%=client.username%></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/profile"><%=status%></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Sair</a>
-            </li>
-          </ul>
+    <%- include components/header.ejs %>
+
+    <section>
+      <div class="container" style="height: 100vh;">
+        <div class="title" style="text-align: center;">
+          <%if (guild.icon) {%>
+          <img
+            src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.png?size=128"
+            class="guild-avatar rounded-circle"
+            width="150px"
+            height="150px"
+          />
+          <%}else{%>
+          <canvas
+            class="guild-avatar rounded-circle"
+            id="<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '') %>"
+            width="150px"
+            height="150px"
+          ></canvas>
+
+          <script>
+            function createIcone() {
+              const nameAcronym = document
+                .getElementById(
+                  "<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>"
+                )
+                .getContext("2d");
+              nameAcronym.font = "90px Arial";
+              nameAcronym.textAlign = "center";
+              nameAcronym.fillStyle = "white";
+              nameAcronym.fillText(
+                "<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>",
+                75,
+                105
+              );
+            }
+            createIcone();
+          </script>
+          <%}%>
+          <h1 class="guild-name">
+            <%=guild.name%>
+          </h1>
         </div>
       </div>
-    </nav>
 
-  <header class="masthead text-center text-white">
-    <div class="masthead-content">
-      <div class="container">
-              <%if (guild.icon) {%>
-              <img src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.png?size=128" class="bot-avatar rounded-circle" width="150px" height="150px">
-              <%}else{%>
-              <canvas class="bot-avatar rounded-circle" id="<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '') %>" width="150px" height="150px"></canvas>
+      <div class="container" style="height: 100vh">
+        <div class="guilds">
+          <div class="row">
+            <div class="col-md-4">
+              <h1 style="font-size: 40px;">Navegação</h1>
+              <div class="info-container">
+                <div
+                  class="nav flex-column nav-pills"
+                  id="v-pills-tab"
+                  role="tablist"
+                  aria-orientation="vertical"
+                >
+                  <a
+                    class="nav-link active"
+                    id="v-pills-home-tab"
+                    data-toggle="pill"
+                    href="#v-pills-home"
+                    role="tab"
+                    aria-controls="v-pills-home"
+                    aria-selected="true"
+                    >Inicio</a
+                  >
+                  <a
+                    class="nav-link"
+                    id="v-pills-general-tab"
+                    data-toggle="pill"
+                    href="#v-pills-general"
+                    role="tab"
+                    aria-controls="v-pills-general"
+                    aria-selected="false"
+                    >Configuração Geral</a
+                  >
+                  <a
+                    class="nav-link"
+                    id="v-pills-perms-tab"
+                    data-toggle="pill"
+                    href="#v-pills-perms"
+                    role="tab"
+                    aria-controls="v-pills-perms"
+                    aria-selected="false"
+                    >Permissões</a
+                  >
+                  <hr />
+                  <a
+                    class="nav-link"
+                    id="v-pills-mod-tab"
+                    data-toggle="pill"
+                    href="#v-pills-mod"
+                    role="tab"
+                    aria-controls="v-pills-mod"
+                    aria-selected="false"
+                    >Moderação</a
+                  >
+                  <a
+                    class="nav-link"
+                    id="v-pills-message-tab"
+                    data-toggle="pill"
+                    href="#v-pills-message"
+                    role="tab"
+                    aria-controls="v-pills-message"
+                    aria-selected="false"
+                    >Mensagens de Entrada/Saida</a
+                  >
+                  <a
+                    class="nav-link"
+                    id="v-pills-autorole-tab"
+                    data-toggle="pill"
+                    href="#v-pills-autorole"
+                    role="tab"
+                    aria-controls="v-pills-autorole"
+                    aria-selected="false"
+                    >Autorole</a
+                  >
+                  <a
+                    class="nav-link"
+                    id="v-pills-counter-tab"
+                    data-toggle="pill"
+                    href="#v-pills-counter"
+                    role="tab"
+                    aria-controls="v-pills-counter"
+                    aria-selected="false"
+                    >Contador de Membros</a
+                  >
+                  <a
+                    class="nav-link"
+                    id="v-pills-economy-tab"
+                    data-toggle="pill"
+                    href="#v-pills-economy"
+                    role="tab"
+                    aria-controls="v-pills-economy"
+                    aria-selected="false"
+                    >Economia</a
+                  >
+                  <a
+                    class="nav-link"
+                    id="v-pills-exp-tab"
+                    data-toggle="pill"
+                    href="#v-pills-exp"
+                    role="tab"
+                    aria-controls="v-pills-exp"
+                    aria-selected="false"
+                    >Níveis de XP</a
+                  >
+                  <hr />
+                  <a
+                    class="nav-link"
+                    id="v-pills-logs-tab"
+                    data-toggle="pill"
+                    href="#v-pills-logs"
+                    role="tab"
+                    aria-controls="v-pills-logs"
+                    aria-selected="false"
+                    >Logs</a
+                  >
+                </div>
+              </div>
+            </div>
 
-              <script>
-              function createIcone() {
-                const nameAcronym = document.getElementById("<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>").getContext('2d');
-                  nameAcronym.font = '90px Arial';
-                  nameAcronym.textAlign = "center";
-                  nameAcronym.fillStyle = "white";
-                  nameAcronym.fillText("<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>", 75, 105);
-              };
-                createIcone();
-              </script>
-            <%}%>
-            <br/>
-        <h3 class="masthead-heading mb-0" style="font-size: 3em !important;"><%=guild.name%></h3>
-          <br/>
-          <center>
-              <p>
-                <strong>Owner:</strong> <%=guild.owner.user.tag%><br />
-                <strong>ID:</strong> <%=guild.id %><br />
-                <strong>Número de Membros:</strong> <%=guild.memberCount%><br />
-                <strong>Salas de voz:</strong> <%=guild.channels.filter(c => c.type === 'voice').size%><br />
-                <strong>Salas de texto:</strong> <%=guild.channels.filter(c => c.type === 'text').size%> <br />
-                <strong>Número de cargos:</strong> <%=guild.roles.size%><br />
-                <strong>Região:</strong> <%=guild.region%><br />
-                <strong>Data de criação:</strong> <%=guild.createdAt.toUTCString()%><br />
-              </p>
-            </center>
+            <div class="col-md-8">
+              <h1 style="font-size: 40px;">Configurações</h1>
+              <div class="guild-container">
+                <div class="config-container">
+                  <div class="row">
+                    <div class="tab-content" id="v-pills-tabContent">
+                      <div
+                        class="tab-pane fade show active"
+                        id="v-pills-home"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-home-tab"
+                      >
+                        <span>a</span>
+                      </div>
+
+                      <div
+                        class="tab-pane fade show"
+                        id="v-pills-general"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-general-tab"
+                      >
+                        <form
+                          action="#"
+                          id="save"
+                          method="POST"
+                          autocomplete="off"
+                        >
+                          <div class="prefix">
+                            <h4>Prefixo</h4>
+                            <span
+                              >Prefixo é o texto que vem antes de um comando.
+                              <br />
+                              Por padrão eu venho com o caractere
+                              <strong>!</strong>, mas você pode alterá-lo nesta
+                              opção.</span
+                            >
+                            <input
+                              type="text"
+                              id="prefix"
+                              name="prefix"
+                              placeholder="<%= `${guildInfo.prefix}` %>"
+                            />
+                            <h5>Exemplo</h5>
+                            <div
+                              class="discord-message-helper"
+                              style="display: flex; flex-direction: column; justify-content: center; font-family: Lato,Helvetica Neue,Helvetica,Arial,sans-serif;"
+                            >
+                              <div style="display: flex; align-items: center;">
+                                <div
+                                  style="display: flex; flex-direction: column; margin-right: 10px;"
+                                >
+                                  <img
+                                    src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=512%>"
+                                    style="border-radius: 100%;"
+                                    width="40"
+                                  />
+                                </div>
+                                <div
+                                  style="display: flex; flex-direction: column;"
+                                >
+                                  <div style="font-weight: 600;">
+                                    <%= `${user.username}` %>
+                                  </div>
+                                  <div>
+                                    <span
+                                      class="prefixPreview"
+                                      id="command-prefix-preview"
+                                      ><%= `${guildInfo.prefix}` %></span
+                                    ><span>ping</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div><hr /></div>
+                              <div style="display: flex; align-items: center;">
+                                <div
+                                  style="display: flex; flex-direction: column; margin-right: 10px;"
+                                >
+                                  <img
+                                    src="<%=client.displayAvatarURL%>"
+                                    style="border-radius: 100%;"
+                                    width="40"
+                                  />
+                                </div>
+                                <div
+                                  style="display: flex; flex-direction: column;"
+                                >
+                                  <div style="font-weight: 600;">
+                                    <%=client.username%>
+                                  </div>
+                                  <div>
+                                    <b
+                                      ><span class="discord-mention"
+                                        >@<%= `${user.username}` %></span
+                                      >
+                                      Pong!</b
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="other-configs">
+                            <h4>Outras Configurações</h4>
+
+                            <div class="toggleable-wrapper">
+                              <div class="information">
+                                <div>
+                                  Canais liberados para uso de comandos
+                                </div>
+                                <div class="sub-text">
+                                  Nos canais selecionados o uso de comando é
+                                  <strong>liberado</strong>, ou seja,
+                                  usuários da guilda podem executar meus comandos livremente nesses canais.
+                                  <br><i>Caso nenhum canal seja definido o uso de comandos é liberado em todos os canais da guilda.</i>
+                                </div>
+                                <form method="POST" action="#">
+                                  <select
+                                    id="select-channel"
+                                    name="send_CHANNELID"
+                                    aria-controls="config"
+                                    class="form-control form-control-sm"
+                                    aria-placeholder="Selecione um canal"
+                                  >
+                                  <option value="" disabled selected>Selecione um canal</option>
+
+                                  <% guild.channels.filter(c => c.type ===
+                                    'text').filter(c => c.permissionsFor(client)
+                                    .has("SEND_MESSAGES") &&
+                                    c.permissionsFor(client)
+                                    .has("READ_MESSAGES")).forEach(c => { %>
+                                    <option value="<%= c.id %>">#<%= c.name %></option>
+                                    <% }); %>
+ 
+                                  </select>
+                                  <button class="addBtn" id="select-channel-btn">
+                                    Adicionar
+                                  </button>
+                                </form>
+                              </div>
+                              
+                              <!-- tá sem a variaveu q variavel, guildInfo.config.cmdChannels  ah pera-->
+                              <div id="selected-channel-list">
+                                <% guildInfo.config.cmdChannels.forEach(c => { %>
+                                  <div id="selected-channel" data-created="true" data-channel-id="<% c %>">
+                                    <% guild.channels.get(c).name %>
+                                  </div>
+                                  <% }); %>
+                              </div>
+                            </div>
+
+                            <div class="toggleable-wrapper">
+                              <div class="information">
+                                <div>
+                                  Deletar mensagem do usuário ao executar um
+                                  comando
+                                </div>
+                                <div class="sub-text">
+                                  Ao executar um comando, eu irei deletar a
+                                  mensagem do usuário.
+                                </div>
+                              </div>
+                              <label
+                                class="switch"
+                                for="delete-message-after-command"
+                                >
+                                
+                                <% if (guildInfo.config.deleteMessage) { %>
+                                  <input
+                                  type="checkbox"
+                                  id="delete-message-after-command" checked/>
+                                <% } else {%>
+                                  <input
+                                    type="checkbox"
+                                    id="delete-message-after-command" unchecked>
+                                <% } %>
+                                <div class="slider round"></div
+                              ></label>
+                            </div> 
+
+                            <div class="toggleable-wrapper">
+                              <div class="information">
+                                <div>
+                                  Enviar mensagem para o usuário quando executar
+                                  comandos em canais proibidos
+                                </div>
+                                <div class="sub-text">
+                                  Caso você tenha configurado canais para o uso
+                                  de comandos você pode ativar essa opção para
+                                  que, quando um usuário tentar usar um comando
+                                  em outro canal, eu avise que não é possível.
+                                </div>
+                              </div>
+                              <label class="switch" for="warn-if-blacklisted"
+                                ><input
+                                  type="checkbox"
+                                  id="warn-if-blacklisted" checked="<%= guildInfo.config.deleteMessage %>"/>
+                                <div class="slider round"></div
+                              ></label>
+                            </div>
+                          </div>
+                          <div class="save">
+                            <button type="submit">Salvar</button>
+                          </div>
+                        </form>
+                      </div>
+
+                      <div
+                        class="tab-pane fade show"
+                        id="v-pills-perms"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-perms-tab"
+                      >
+                        <span>c</span>
+                      </div>
+
+                      <div
+                        class="tab-pane fade show"
+                        id="v-pills-mod"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-mod-tab"
+                      >
+                        <span>d</span>
+                      </div>
+
+                      <div
+                        class="tab-pane fade show"
+                        id="v-pills-message"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-message-tab"
+                      >
+                        <span>e</span>
+                      </div>
+
+                      <div
+                        class="tab-pane fade show"
+                        id="v-pills-autorole"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-autorole-tab"
+                      >
+                        <span>f</span>
+                      </div>
+
+                      <div
+                        class="tab-pane fade show"
+                        id="v-pills-counter"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-counter-tab"
+                      >
+                        <span>g</span>
+                      </div>
+
+                      <div
+                        class="tab-pane fade show"
+                        id="v-pills-economy"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-economy-tab"
+                      >
+                        <span>h</span>
+                      </div>
+
+                      <div
+                        class="tab-pane fade show"
+                        id="v-pills-exp"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-exp-tab"
+                      >
+                        <span>i</span>
+                      </div>
+
+                      <div
+                        class="tab-pane fade show"
+                        id="v-pills-logs"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-logs-tab"
+                      >
+                        <span>j</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="col-md-4">
+              <h1 style="font-size: 40px;">Informações</h1>
+              <div class="info-container">
+                <div class="info">
+                  <%if (guild.icon) {%>
+                    <img
+                      src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.png?size=128"
+                      class="guild-avatar rounded-circle"
+                    />
+                    <%}else{%>
+                    <canvas
+                      class="guild-avatar rounded-circle"
+                      id="<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '') %>"
+                    ></canvas>
+          
+                    <script>
+                      function createIcone() {
+                        const nameAcronym = document
+                          .getElementById(
+                            "<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>"
+                          )
+                          .getContext("2d");
+                        nameAcronym.font = "90px Arial";
+                        nameAcronym.textAlign = "center";
+                        nameAcronym.fillStyle = "white";
+                        nameAcronym.fillText(
+                          "<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>",
+                          75,
+                          105
+                        );
+                      }
+                      createIcone();
+                    </script>
+                    <%}%>
+                    <h3 class="guild-name">
+                      <%=guild.name%>
+                    </h3>
+                </div>
+                <ul>
+                  <li><strong>ID: </strong><%= `${guild.id}` %></li>
+                  <li><strong>Owner:</strong> <%=guild.owner.user.tag%></li>
+                  <li><strong>Membros:</strong> <%=guild.memberCount%></li>
+                  <li><strong>Salas de voz:</strong> <%=guild.channels.filter(c =>
+                  c.type === 'voice').size%></li>
+                  <li><strong>Salas de texto:</strong> <%=guild.channels.filter(c =>
+                  c.type === 'text').size%> </li>
+                  <li><strong>Cargos:</strong> <%=guild.roles.size%></li>
+                  <li><strong>Região:</strong> <%=guild.region%></li>
+                  <li><strong>Data de criação:</strong>
+                  <%=guild.createdAt.toUTCString()%></li>
+                </ul>
+              </div>
+            </div> -->
           </div>
         </div>
-      </header>
+      </div>
+    </section>
 
-      <br/>
+    <!-- <header class="masthead text-center text-white">
+      <div class="masthead-content">
+        <div class="container">
+          <%if (guild.icon) {%>
+          <img
+            src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.png?size=128"
+            class="bot-avatar rounded-circle"
+            width="150px"
+            height="150px"
+          />
+          <%}else{%>
+          <canvas
+            class="bot-avatar rounded-circle"
+            id="<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '') %>"
+            width="150px"
+            height="150px"
+          ></canvas>
 
-     <div class="container">
+          <script>
+            function createIcone() {
+              const nameAcronym = document
+                .getElementById(
+                  "<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>"
+                )
+                .getContext("2d");
+              nameAcronym.font = "90px Arial";
+              nameAcronym.textAlign = "center";
+              nameAcronym.fillStyle = "white";
+              nameAcronym.fillText(
+                "<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>",
+                75,
+                105
+              );
+            }
+            createIcone();
+          </script>
+          <%}%>
+          
+          <h3 class="masthead-heading mb-0" style="font-size: 3em !important;">
+            <%=guild.name%>
+          </h3>
+          
+          <center>
+            <p>
+              <strong>Owner:</strong> <%=guild.owner.user.tag%>
+              <strong>ID:</strong> <%=guild.id %>
+              <strong>Número de Membros:</strong> <%=guild.memberCount%>
+              <strong>Salas de voz:</strong> <%=guild.channels.filter(c =>
+              c.type === 'voice').size%>
+              <strong>Salas de texto:</strong> <%=guild.channels.filter(c =>
+              c.type === 'text').size%> 
+              <strong>Número de cargos:</strong> <%=guild.roles.size%>
+              <strong>Região:</strong> <%=guild.region%>
+              <strong>Data de criação:</strong>
+              <%=guild.createdAt.toUTCString()%>
+            </p>
+          </center>
+        </div>
+      </div>
+    </header> -->
+    <!-- 
+    <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-6 order-lg-2"> 
-          <form action="/servers/<%=guild.id%>" method='post' id="form_MESSAGE">         
-          <h2 class="display-5">Enviar mensagem</h2>
+        <div class="col-lg-6 order-lg-2">
+          <form action="/servers/<%=guild.id%>" method="post" id="form_MESSAGE">
+            <h2 class="display-5">Enviar mensagem</h2>
             <b>Selecione uma sala: </b>
-            <select id="select-channel" name="send_CHANNELID" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
+            <select
+              id="select-channel"
+              name="send_CHANNELID"
+              aria-controls="config"
+              class="form-control form-control-sm"
+              style="margin-bottom: 5px;"
+            >
               <option value="NOT_SET">no</option>
-              <% guild.channels.filter(c => c.type === 'text').filter(c => c.permissionsFor(client)
-.has("SEND_MESSAGES") && c.permissionsFor(client)
-.has("READ_MESSAGES")).forEach(c => { %>
+              <% guild.channels.filter(c => c.type === 'text').filter(c =>
+              c.permissionsFor(client) .has("SEND_MESSAGES") &&
+              c.permissionsFor(client) .has("READ_MESSAGES")).forEach(c => { %>
               <option value="<%= c.id %>" selected>#<%= c.name %></option>
               <% }); %>
             </select>
-            <b>Message: </b> <br/>
-            <input type='text' placeholder="Mensagem" id="input_MESSAGE" name='send_MESSAGE'/>
-          </form> 
-            <br/>
-          <button type="submit" class="btn" id="form_BUTTON" style="color: #363636 !important;border-color: #ced4da !important;" onclick="send();">Enviar</button>
+            <b>Message: </b> 
+            <input
+              type="text"
+              placeholder="Mensagem"
+              id="input_MESSAGE"
+              name="send_MESSAGE"
+            />
+          </form>
+          
+          <button
+            type="submit"
+            class="btn"
+            id="form_BUTTON"
+            style="color: #363636 !important;border-color: #ced4da !important;"
+            onclick="send();"
+          >
+            Enviar
+          </button>
         </div>
       </div>
     </div>
+
     
-    <br/>
-      <div id="pop"></div>
-    <br/>
+    <div id="pop"></div>
     
+
     <footer class="py-5 bg-black">
       <div class="container">
-        <p class="m-0 text-center text-white small">Copyright &copy; <%=client.username%> 2018</p>
+        <p class="m-0 text-center text-white small">
+          Copyright &copy; <%=client.username%> 2018
+        </p>
       </div>
     </footer>
 
     <style type="text/css">
-      .btn:hover, .btn:active, .btn:focus {
+      .btn:hover,
+      .btn:active,
+      .btn:focus {
         color: grey !important;
       }
     </style>
 
     <script type="text/javascript">
-          function send() {
+      function send() {
+        const alert = document.getElementById("pop");
+        alert.innerHTML = `<h2>Enviando</h2>`;
+        alert.setAttribute("class", "alert success");
 
-          const alert = document.getElementById('pop');
-            alert.innerHTML = `<h2>Enviando</h2>`;
-            alert.setAttribute('class', 'alert success');
+        setTimeout(() => {
+          document.getElementById("form_MESSAGE").submit();
+        }, 3000);
+      }
+    </script> -->
 
-      setTimeout(() => {
-
-          document.getElementById('form_MESSAGE').submit() 
-
-      }, 3000)
-    }
-    </script>
-
-
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <%- include components/footer.ejs %>
   </body>
 </html>

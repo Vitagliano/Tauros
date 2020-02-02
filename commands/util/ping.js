@@ -34,5 +34,6 @@ exports.run = async (client, message, args) => {
 exports.help = {
   name: "ping",
   description: "Mostra a latencia de conexão entre o bot e a internet",
-  usage: "ping"
+  usage: "ping",
+  category: "Utilidades"
 };

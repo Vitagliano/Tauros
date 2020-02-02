@@ -40,5 +40,6 @@ exports.run = async (client, message, args) => {
 exports.help = {
   name: "prnt",
   description: "Uma prnt para futuros comandos",
-  usage: "prnt"
+  usage: "prnt",
+  category: ["Diversão"]
 };

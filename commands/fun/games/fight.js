@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require('../../config.json');
+const config = require('../../../config.json');
 
 const randomItem = arr => arr[Math.floor(Math.random() * arr.length)];
 
@@ -259,5 +259,6 @@ exports.help = {
     name: 'fight',
     usage: 'fight info/<@user>',
     description: 'Inicia uma luta com outro usuário para ver quem ganha.',
-    aliases: ['lutar, luta']
+    aliases: ['lutar, luta'],
+    category: ["Jogos"]
 };

@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
-const config = require("../config.json");
-require("dotenv-flow").config();
+const config = require("../config");
 
 const cooldown = new Map();
 const queue = new Map();
@@ -23,22 +22,53 @@ async function onMessage(client, message) {
     console.error(error);
   }
 
+  if (message.isMentioned(client.user)) {
+    message.reply(
+      `o meu prefixo neste servidor é \`${settings.prefix}\`, para ver o que eu posso fazer use \`${settings.prefix}ajuda\`!`
+    );
+  }
+
   if (message.content.indexOf(settings.prefix) !== 0) return;
 
-  const args = message.content
-    .slice(settings.prefix.length)
-    .trim()
-    .split(/ +/g);
-  const command = args.shift().toLowerCase();
+  const args = message.content.split(" ");
+  const cmd = args.shift();
 
-  const cmd = client.commands.get(command);
-  if (!cmd) return;
+  const command = getCommand(client, cmd);
+  if (command) {
+    // message.delete(1000).catch(err => {});
 
-  cmd.run(client, message, args, settings);
+    // if (cooldown.has(message.author.id)) {
+    //   const timeSinceLastCommand = Date.now() - cooldown.get(message.author.id);
+    //   if (timeSinceLastCommand < config.command.cooldown) {
+    //     message
+    //       .reply(
+    //         `Aguarde ${(
+    //           (config.command.cooldown - timeSinceLastCommand) /
+    //           1000
+    //         ).toFixed(2)} segundos para executar um novo comando.`
+    //       )
+    //       .then(msg => msg.delete(5000));
+    //     return;
+    //   }
+    // }
+
+    // if (
+    //   !message.member.roles.find(
+    //     role =>
+    //       role.id === config.ranks.lider ||
+    //       role.id === config.ranks.sublider ||
+    //       role.id === config.ranks.dono
+    //   )
+    // ) {
+    //   cooldown.set(message.author.id, Date.now());
+    // }
+
+    command.run(client, message, args, settings, queue);
+  }
 }
 
 function getCommand(client, name) {
-  name = name.slice(process.env.PREFIX.length);
+  name = name.slice(config.prefix.length);
 
   let command = client.commands.get(name);
   if (!command) {
