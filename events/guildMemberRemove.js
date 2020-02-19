@@ -13,12 +13,13 @@ exports.run = async (client, member) => {
 
   try {
     guildDB.findOne({ guildID: member.guild.id }, function(err, doc) {
-      if (!doc.leave.enabled) return;
-
-      if (member.guild.channels.get(doc.leave.channel)) {
+      if (!doc.config.messages.enabled) return;
+      
+      if (!doc.config.messages.leave.enabled) return;
+      if (member.guild.channels.get(doc.config.messages.leave.channel)) {
         try {
-          member.guild.channels.get(doc.leave.channel).send(
-            doc.leave.message
+          member.guild.channels.get(doc.config.messages.leave.channel).send(
+            doc.config.messages.leave.message
               .replace(/{usuario.id}/g, `<@${member.id}>`)
               .replace(/{usuario.tagnome}/g, `${member.user.tag}`)
               .replace(/{usuario.tag}/g, `${member.user.discriminator}`)

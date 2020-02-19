@@ -41,5 +41,5 @@ exports.help = {
   name: "prnt",
   description: "Uma prnt para futuros comandos",
   usage: "prnt",
-  category: ["Diversão"]
+  category: "Diversão"
 };

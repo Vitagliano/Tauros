@@ -19,7 +19,6 @@ router
     ) return res.redirect("/dashboard");
 
     const guildInfo = await guildDB.findOne({ guildID: req.params.guildID });
-
     res.render("guild.ejs", {
       status: req.isAuthenticated()
         ? `${req.user.username}#${req.user.discriminator}`
@@ -30,7 +29,16 @@ router
       guildInfo,
       avatarURL: `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png`,
       iconURL: `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png?size=32`,
-      guild: serv
+      guild: serv,
+      getRoles: (role) => {
+        return guildInfo.config.autoRole.roles.includes(role.id)
+      },
+      containsCommandChannel: (channel) => {
+        return guildInfo.config.cmdChannels.includes(channel.id);
+      },
+      getAllowedChannel: (channel) => {
+        return guildInfo.config.antiInvite.allowedChannels.includes(channel.id);
+      }
     });
   })
   .post("/:guildID", CheckAuth, async function(req, res) {

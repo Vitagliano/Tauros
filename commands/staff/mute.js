@@ -172,5 +172,5 @@ exports.run = async (client, message, args) => {
 exports.help = {
   name: "mute",
   aliases: ["mutar"],
-  category: ["Staff"]
+  category: "Staff"
 };

@@ -5,6 +5,8 @@ const passport = require("passport");
 const { Strategy } = require("passport-discord");
 const bodyparser = require("body-parser");
 const path = require("path");
+const mongoose = require("mongoose");
+const { Profile } = require("../models");
 
 module.exports.load = async client => {
   passport.serializeUser((user, done) => {
@@ -24,8 +26,8 @@ module.exports.load = async client => {
         callbackURL: "http://localhost:3000/login",
         scope: scopes
       },
-      function(accessToken, refreshToken, profile, done) {
-        process.nextTick(function() {
+      async (accessToken, refreshToken, profile, done) => {
+        process.nextTick(async () => {
           return done(null, profile);
         });
       }
@@ -58,9 +60,15 @@ module.exports.load = async client => {
     .use("/servers", require("./router/servers"))
     .use("/commands", require("./router/commands"))
     .get("*", function(req, res) {
-      res.redirect("/");
+      res.status(404).render("404.ejs", {
+        client: req.bot.user,
+        user: req.user,
+        status: req.isAuthenticated()
+          ? `${req.user.username}#${req.user.discriminator}`
+          : "Login",
+        login: req.isAuthenticated() ? "yes" : "no",
+      });
     });
-
 
   app.listen(app.get("port"), err => {
     if (err) throw err;

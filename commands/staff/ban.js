@@ -123,5 +123,5 @@ exports.run = async (bot, message, args) => {
 exports.help = {
   name: "ban",
   aliases: ["banir"],
-  category: ["Staff"]
+  category: "Staff"
 };

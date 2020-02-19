@@ -980,5 +980,5 @@ exports.help = {
   description: "Uma base para futuros comandos",
   usage: "base",
   aliases: ["hashtag", "jogodavelha"],
-  category: ["Jogos"]
+  category: "Jogos"
 };

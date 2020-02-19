@@ -37,5 +37,5 @@ exports.run = async (bot, message, args) => {
 exports.help = {
     name: "primeiraspalavras",
     aliases: ['firstword'],
-    category: ["Diversão"]
+    category: "Diversão"
 }

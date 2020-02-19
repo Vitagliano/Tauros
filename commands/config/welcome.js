@@ -199,5 +199,5 @@ exports.help = {
   name: "welcome",
   description: "Define o canal e a mensagem de boas-vindas",
   usage: "welcome help",
-  category: ["Configuração"]
+  category: "Configuração"
 };

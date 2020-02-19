@@ -18,4 +18,5 @@ exports.run = async (client, msg, args) => {
 exports.help = {
     name : "eval",
     type: "Owner",
+    category: "Owner"
 }

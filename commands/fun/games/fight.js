@@ -260,5 +260,5 @@ exports.help = {
     usage: 'fight info/<@user>',
     description: 'Inicia uma luta com outro usuário para ver quem ganha.',
     aliases: ['lutar, luta'],
-    category: ["Jogos"]
+    category: "Jogos"
 };

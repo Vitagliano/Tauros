@@ -106,5 +106,5 @@ exports.run = async (client, message, args) => {
 exports.help = {
   name: "warn",
   aliases: ["aviso", "anuncio", "anunciar"],
-  category: ["Staff"]
+  category: "Staff"
 };

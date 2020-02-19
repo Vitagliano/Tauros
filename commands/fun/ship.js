@@ -88,5 +88,5 @@ exports.run = async (client, message, args) => {
 
 exports.help = {
   name: "ship",
-  category: ["Diversão"]
+  category: "Diversão"
 };

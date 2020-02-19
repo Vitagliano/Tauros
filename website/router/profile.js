@@ -13,7 +13,7 @@ router.get("/", CheckAuth, async (req, res) => {
     user: req.user,
     userInfo,
     login: req.isAuthenticated() ? "yes" : "no",
-    guilds: req.user.guilds.filter(
+    guilds: (req.user.guilds || []).filter(
       u => (u.permissions & 2146958591) === 2146958591
     ),
     avatarURL: `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png`,

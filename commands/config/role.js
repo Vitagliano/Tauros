@@ -182,5 +182,5 @@ exports.help = {
   description: "Define os cargos de administrador e moderador.",
   usage: "role help",
   aliases: ["roles", "cargo"],
-  category: ["Configuração"]
+  category: "Configuração"
 };

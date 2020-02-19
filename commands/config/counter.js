@@ -178,5 +178,5 @@ exports.help = {
     aliases: ['counter'],
     usage: "counter help",
     description: "Define o contador de membros em um canal",
-    category: ["Configuração"]
+    category: "Configuração"
 }

@@ -1,54 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title><%=client.username%></title>
+
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/one-page-wonder.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+
 <header>
     <div class="content">
-      <nav class="navbar navbar-expand-lg ">
-        <div class="container">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#textoNavbar"
-            aria-controls="textoNavbar"
-            aria-expanded="false"
-            aria-label="Alterna navegação"
-          >
-            <div class="icon nav-icon-5">
-              <span></span>
-              <span></span>
-              <span></span>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container">
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#textoNavbar"
+                    aria-controls="textoNavbar"
+                    aria-expanded="false"
+                    aria-label="Alterna navegação"
+                >
+                    <div class="icon nav-icon-5">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <div class="collapse navbar-collapse" id="textoNavbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/commands">Comandos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">FAQ</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <%if(login === 'yes') {%>
+                        <li class="nav-item">
+                            <img class="user-avatar img-fluid rounded-circle" src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png%>" alt="<%=status%>" />
+                            <a class="user-name nav-link" href="/profile"><%=status%></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Sair</a>
+                        </li>
+                        <%}%> <%if(login === 'no') {%>
+                        <li class="nav-item">
+                            <a class="nav-link login" href="/login">Login</a>
+                        </li>
+                        <%}%>
+                    </ul>
+                </div>
             </div>
-          </button>
-          <div class="collapse navbar-collapse" id="textoNavbar">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about">Sobre</a>
-              </li>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/commands">Comandos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav">
-              <%if(login === 'yes') {%>
-              <li class="nav-item">
-                <a class="nav-link" href="/profile"><%=status%></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/logout">Sair</a>
-              </li>
-              <%}%> <%if(login === 'no') {%>
-              <li class="nav-item">
-                <a class="nav-link login" href="/login">Login</a>
-              </li>
-              <%}%>
-            </ul>
-          </div>
-        </div>
-      </nav>
+        </nav>
     </div>
-  </header>
+</header>

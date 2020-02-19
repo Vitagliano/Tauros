@@ -139,5 +139,5 @@ exports.help = {
   name: "autorole",
   usage: "autorole help",
   description: "Define um cargo de entrada automático",
-  category: ["Configuração"]
+  category: "Configuração"
 };

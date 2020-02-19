@@ -28,5 +28,6 @@ exports.run = async (client, message, args) => {
 exports.help = {
   name: "base",
   description: "Uma base para futuros comandos",
-  usage: "base"
+  usage: "base",
+  category: "Base"
 };

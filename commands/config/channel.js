@@ -326,5 +326,5 @@ exports.help = {
   description: "Define os canais de punição, avisos, logs e comandos.",
   usage: "channel help",
   aliases: ["channels", "canal"],
-  category: ["Configuração"]
+  category: "Configuração"
 };

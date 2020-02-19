@@ -93,5 +93,5 @@ exports.help = {
   description: "O famoso jogo da forca",
   usage: "hangman",
   aliases: ["forca"],
-  category: ["Jogos"]
+  category: "Jogos"
 };

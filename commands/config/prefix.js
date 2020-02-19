@@ -32,5 +32,5 @@ exports.help = {
   name: "prefix",
   description: "Define o prefix do bot na guilda",
   usage: "prefix help",
-  category: ["Configuração"]
+  category: "Configuração"
 };

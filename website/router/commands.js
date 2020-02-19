@@ -11,6 +11,7 @@ router
         : "Login",
       client: req.bot.user,
       commands: req.bot.commands,
+      categories: [ ...new Set(req.bot.commands.filter(x => x.help.category).map(x => x.help.category))],
       user: req.user,
       login: req.isAuthenticated() ? "yes" : "no",
       invite: `https://discordapp.com/oauth2/authorize?client_id=${req.bot.user.id}&scope=bot&permissions=-1`

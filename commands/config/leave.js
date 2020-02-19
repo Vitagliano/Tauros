@@ -199,5 +199,5 @@ exports.help = {
   name: "leave",
   description: "Define o canal e a mensagem de saida",
   usage: "leave help",
-  category: ["Configuração"]
+  category: "Configuração"
 };

@@ -22,12 +22,12 @@ exports.run = async (client, message, args) => {
     .setColor(config.color)
     .setFooter(`Emoji adicionado por ${message.author.username}`)
     .setTimestamp();
-  message.channel.send({ embed });
+  message.channel.send(embed);
 };
 
 exports.help = {
   name: "addemoji",
   description: "Adiciona um emoji ao servidor",
   usage: "addemoji [url] [nome]",
-  category: ["Staff"]
+  category: "Staff"
 };
