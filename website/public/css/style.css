@@ -1023,6 +1023,278 @@ h1.guild-name {
     list-style: none;
 }
 
+/* STARBOARD */
+
+.starboard {
+    text-align: left;
+    font-weight: 500;
+}
+
+.starboard h4 {
+    color: #181818 !important;
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0px 0px 15px 0px;
+    text-transform: uppercase;
+}
+
+.starboard .toggleable-wrapper {
+    display: flex;
+    color: #252525 !important;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 8px;
+}
+
+.starboard .toggleable-wrapper .information {
+    flex: 0 1 auto;
+    flex-basis: auto;
+    flex-grow: 1;
+    font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+}
+
+.starboard .toggleable-wrapper .information .sub-text {
+    color: rgba(114, 118, 126, 0.8);
+    font-size: 11px;
+    margin-top: 4px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.starboard .toggleable-wrapper .information #select-channel {
+    outline: none !important;
+    width: 50%;
+    margin: 20px 0px;
+    display: inline-block;
+    border: 0;
+    background-color: #f0f0f0;
+}
+
+.starboard .toggleable-wrapper .information #select-channel option {
+    outline: none !important;
+    width: 50%;
+    margin: 20px 0px;
+    border: 0;
+    background-color: #f0f0f0;
+}
+
+.starboard
+    .toggleable-wrapper
+    .information
+    #selected-channel-list
+    #selected-channel {
+    display: inline-block !important;
+    margin: 0px 25px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.starboard .toggleable-wrapper .information .addBtn {
+    margin: 0px 0px 0px 25px;
+    cursor: pointer;
+    border: 0;
+    background-color: #486eb5;
+    border-radius: 5px;
+    padding: 6px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    transition: ease-in-out 0.5s;
+}
+
+.starboard .toggleable-wrapper .information .addBtn:hover {
+    background-color: #38568b;
+    transition: ease-in-out 0.5s;
+}
+
+.starboard select {
+    margin-top: 15px;
+    outline: none !important;
+    width: 50%;
+    margin: 20px 0px;
+    display: inline-block;
+    border: 0;
+    background-color: #f0f0f0;
+}
+
+.starboard input {
+    margin-top: 15px;
+    outline: none !important;
+    padding: 10px;
+    margin: 20px 0px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 0;
+    background-color: #f0f0f0;
+}
+
+/* MODERATION */
+
+.moderation {
+    text-align: left;
+    font-weight: 500;
+}
+
+.moderation h4 {
+    color: #181818 !important;
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0px 0px 15px 0px;
+    text-transform: uppercase;
+}
+
+.moderation .toggleable-wrapper {
+    display: flex;
+    color: #252525 !important;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 8px;
+}
+
+.moderation .toggleable-wrapper .information {
+    flex: 0 1 auto;
+    flex-basis: auto;
+    flex-grow: 1;
+    font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+}
+
+.moderation .toggleable-wrapper .information .sub-text {
+    color: rgba(114, 118, 126, 0.8);
+    font-size: 11px;
+    margin-top: 4px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.moderation .toggleable-wrapper .information #select-channel {
+    outline: none !important;
+    width: 50%;
+    margin: 20px 0px;
+    display: inline-block;
+    border: 0;
+    background-color: #f0f0f0;
+}
+
+.moderation .toggleable-wrapper .information #select-channel option {
+    outline: none !important;
+    width: 50%;
+    margin: 20px 0px;
+    border: 0;
+    background-color: #f0f0f0;
+}
+
+.moderation
+    .toggleable-wrapper
+    .information
+    #selected-channel-list
+    #selected-channel {
+    display: inline-block !important;
+    margin: 0px 25px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.moderation .toggleable-wrapper .information .addBtn {
+    margin: 0px 0px 0px 25px;
+    cursor: pointer;
+    border: 0;
+    background-color: #486eb5;
+    border-radius: 5px;
+    padding: 6px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    transition: ease-in-out 0.5s;
+}
+
+.moderation .toggleable-wrapper .information .addBtn:hover {
+    background-color: #38568b;
+    transition: ease-in-out 0.5s;
+}
+
+.moderation select {
+    margin-top: 15px;
+    outline: none !important;
+    width: 50%;
+    margin: 20px 0px;
+    display: inline-block;
+    border: 0;
+    background-color: #f0f0f0;
+}
+
+.moderation input {
+    margin-top: 15px;
+    outline: none !important;
+    padding: 10px;
+    margin: 20px 0px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 0;
+    background-color: #f0f0f0;
+}
+
+.moderation textarea {
+    margin: 15px 0px 0px 0px;
+    border: 0;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    resize: none;
+}
+
+.moderation .placeholder {
+    border: 0;
+    font-size: 13px;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin: 15px 0px 5px 0px;
+    cursor: pointer;
+}
+
+.moderation .placeholder-list {
+    margin: 10px 0px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    display: none;
+    font-weight: normal;
+    transition: all ease-in-out .05;
+}
+
+.moderation .placeholder-list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.moderation .options {
+    display: flex;
+}
+
+.moderation .options .information {
+    text-transform: uppercase;
+}
+
+.moderation .options select {
+    margin-top: 15px;
+    outline: none !important;
+    width: 100%;
+    margin: 20px 0px;
+    display: inline-block;
+    border: 0;
+    background-color: #f0f0f0;
+}
+
+
 /* WELCOME LEAVE MESSAGES */
 
 .module-activate {

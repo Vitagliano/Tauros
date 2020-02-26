@@ -42,9 +42,37 @@ const refreshModuleActivate = function (selector) {
 }
 
 $(document).ready(function() {
+    refreshModuleActivate('#send-punish-message')
+    $('#send-punish-message').change(function() {
+        refreshModuleActivate('#send-punish-message')
+    });
+});
+
+$(document).ready(function() {
+    refreshModuleActivate('#activate-automod')
+    $('#activate-automod').change(function() {
+        refreshModuleActivate('#activate-automod')
+    });
+});
+
+$(document).ready(function() {
+    refreshModuleActivate('#activate-mod')
+    $('#activate-mod').change(function() {
+        refreshModuleActivate('#activate-mod')
+    });
+});
+
+$(document).ready(function() {
     refreshModuleActivate('#activate-send-message')
     $('#activate-send-message').change(function() {
         refreshModuleActivate('#activate-send-message')
+    });
+});
+
+$(document).ready(function() {
+    refreshModuleActivate('#activate-starboard')
+    $('#activate-starboard').change(function() {
+        refreshModuleActivate('#activate-starboard')
     });
 });
 
@@ -275,6 +303,19 @@ $(function() {
                         blockMessage: $('#anti-invite-message').val(),
                         sendMessage: $('#activate-send-message').is(':checked'),
                         deleteInvite: $('#activate-delete-invites').is(':checked')
+                    },
+                    starBoard: {
+                        enabled: $('#activate-starboard').is(':checked'),
+                        starChannel: $('#select-starboard-channel').val(),
+                        minStars: $('#select-starboard-min').val()
+                    },
+                    moderation: {
+                        enabled: $('#activate-mod').is(':checked'),
+                        sendMessage: $('#send-punish-message').is(':checked'),
+                        punishMessage: $('#punish-message').val(),
+                        autoMod: {
+                            enabled: $('#activate-automod').is(':checked')
+                        },
                     },
                     cmdChannels: getCommandChannels(),
                     botName: $('#botName').val(),

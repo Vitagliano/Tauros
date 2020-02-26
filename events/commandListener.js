@@ -38,7 +38,7 @@ async function onMessage(client, message) {
 
     const guild = await guildDB.findOne({ guildID: message.guild.id });
 
-    const command = getCommand(client, cmd, settings.prefix);
+    const command = getCommand(client, cmd, (settings.prefix || config.prefix));
 
     if (guild.config.cmdChannels.length <= 0) return command.run(client, message, args, settings, queue);
 
@@ -86,8 +86,8 @@ async function onMessage(client, message) {
         command.run(client, message, args, settings, queue);
     }
 }
-
-function getCommand(client, name, prefix) {
+// sabe pra que serve esse = na function nao? n, se o valor nao for definido ele usa isso como default, mas ja tem default olha
+function getCommand(client, name, prefix = config.prefix) {
     name = name.slice(prefix.length);
 
     let command = client.commands.get(name);

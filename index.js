@@ -5,6 +5,7 @@ const c = require("colors");
 const fileUtils = require("./utils/fileUtils");
 
 require("./utils/functions")(client);
+require("./utils/autoMod")(client);
 
 client.config = require("./config");
 

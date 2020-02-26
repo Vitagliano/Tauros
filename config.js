@@ -33,7 +33,19 @@ module.exports = {
                 deleteInvite: false,
                 sendMessage: false,
                 blockMessage: '{usuario.nome} você não pode enviar convites aqui!'
-            }  
+            },
+            starBoard: {
+                enabled: false,
+                minStars: '1'
+            },
+            moderation: {
+                enabled: false,
+                sendMessage: false,
+                punishMessage: '**Usuário punido:** {usuario.nome}\n**Punido por** {@staff}\n**Motivo:** {reason}',
+                autoMod: {
+                    enabled: false
+                }
+            }
         },
         counter: {
             enabled: false,

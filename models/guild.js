@@ -39,7 +39,25 @@ const guildSchema = new mongoose.Schema({
             deleteInvite: Boolean,
             sendMessage: Boolean,
             blockMessage: String,
-        } 
+        },
+        starBoard: {
+            enabled: Boolean,
+            starChannel: String,
+            minStars: String,
+            blockedChannels: Array,
+        },
+        moderation: {
+            enabled: Boolean,
+            sendMessage: Boolean,
+            punishMessage: String,
+            autoMod: {
+                enabled: Boolean,
+                actions: {
+                    type: Map,
+                    of: String
+                }
+            }
+        }
     },
     counter: {
         enabled: Boolean,

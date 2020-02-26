@@ -49,9 +49,12 @@ router
     // reinicia
     guildDB
       .findOneAndUpdate({ guildID: req.params.guildID }, { $set: data })
-      .then(() => {
+      .then(async() => {
         // atualizado
         res.send({ status: "ok" });
+        let doc = await guildDB.findOne({guildID: req.params.guildID})
+        let serv = req.bot.guilds.get(req.params.guildID);
+        serv.me.setNickname(doc.config.botName);
       })
       .catch(err => {
         throw err;

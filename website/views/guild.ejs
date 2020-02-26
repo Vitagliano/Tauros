@@ -68,17 +68,20 @@
                   aria-controls="v-pills-general" aria-selected="false">Configuração Geral</a>
                 <a class="nav-link" id="v-pills-perms-tab" data-toggle="pill" href="#v-pills-perms" role="tab"
                   aria-controls="v-pills-perms" aria-selected="false">Permissões</a>
-                <hr />
                 <a class="nav-link" id="v-pills-mod-tab" data-toggle="pill" href="#v-pills-mod" role="tab"
                   aria-controls="v-pills-mod" aria-selected="false">Moderação</a>
+                <hr />
+
                 <a class="nav-link" id="v-pills-message-tab" data-toggle="pill" href="#v-pills-message" role="tab"
                   aria-controls="v-pills-message" aria-selected="false">Mensagens de Entrada/Saida</a>
                 <a class="nav-link" id="v-pills-autorole-tab" data-toggle="pill" href="#v-pills-autorole" role="tab"
                   aria-controls="v-pills-autorole" aria-selected="false">Autorole</a>
                 <a class="nav-link" id="v-pills-counter-tab" data-toggle="pill" href="#v-pills-counter" role="tab"
                   aria-controls="v-pills-counter" aria-selected="false">Contador de Membros</a>
-                <a class="nav-link" id="v-pills-anti-invite-tab" data-toggle="pill" href="#v-pills-anti-invite" role="tab"
-                  aria-controls="v-pills-counter" aria-selected="false">Bloqueador de Convites</a>
+                <a class="nav-link" id="v-pills-anti-invite-tab" data-toggle="pill" href="#v-pills-anti-invite"
+                  role="tab" aria-controls="v-pills-counter" aria-selected="false">Bloqueador de Convites</a>
+                <a class="nav-link" id="v-pills-starboard-tab" data-toggle="pill" href="#v-pills-starboard" role="tab"
+                  aria-controls="v-pills-starboard" aria-selected="false">Starboard</a>
                 <a class="nav-link" id="v-pills-economy-tab" data-toggle="pill" href="#v-pills-economy" role="tab"
                   aria-controls="v-pills-economy" aria-selected="false">Economia</a>
                 <a class="nav-link" id="v-pills-exp-tab" data-toggle="pill" href="#v-pills-exp" role="tab"
@@ -107,75 +110,75 @@
                       <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                         aria-labelledby="v-pills-home-tab">
 
-                          <div class="information">
-                            <div class="botName">
-                              <h4>Nome do Bot</h4>
-                              <span>
-                                Defina um nome para o bot.
-                                <br />
-                                Por padrão eu me chamo
-                                <strong>Tauros</strong>, mas você pode alterar meu nome nesta
-                                opção.
-                              </span>
-                              <input type="text" id="botName" name="botName"
-                                value="<%= `${guildInfo.config.botName}` %>"
-                                placeholder="<%= `${guildInfo.config.botName}` %>" />
-
-                            </div>
-                          </div>
-
-                          <div class="prefix">
-                            <h4>Prefixo</h4>
+                        <div class="information">
+                          <div class="botName">
+                            <h4>Nome do Bot</h4>
                             <span>
-                              Prefixo é o texto que vem antes de um comando.
+                              Defina um nome para o bot.
                               <br />
-                              Por padrão eu venho com o caractere
-                              <strong>!</strong>, mas você pode alterá-lo nesta
+                              Por padrão eu me chamo
+                              <strong>Tauros</strong>, mas você pode alterar meu nome nesta
                               opção.
                             </span>
-                            <input type="text" id="prefix" name="prefix" value="<%= `${guildInfo.prefix}` %>"
-                              placeholder="<%= `${guildInfo.prefix}` %>" />
-                            <h5>Exemplo</h5>
-                            <div class="discord-message-helper"
-                              style="display: flex; flex-direction: column; justify-content: center; font-family: Lato,Helvetica Neue,Helvetica,Arial,sans-serif;">
-                              <div style="display: flex; align-items: center;">
-                                <div style="display: flex; flex-direction: column; margin-right: 10px;">
-                                  <img
-                                    src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=512%>"
-                                    style="border-radius: 100%;" width="40" />
+                            <input type="text" id="botName" name="botName"
+                              value="<%= `${guild.me.nickname || client.username}` %>"
+                              placeholder="<%= `${guild.me.nickname || client.username}` %>" />
+
+                          </div>
+                        </div>
+
+                        <div class="prefix">
+                          <h4>Prefixo</h4>
+                          <span>
+                            Prefixo é o texto que vem antes de um comando.
+                            <br />
+                            Por padrão eu venho com o caractere
+                            <strong>!</strong>, mas você pode alterá-lo nesta
+                            opção.
+                          </span>
+                          <input type="text" id="prefix" name="prefix" value="<%= `${guildInfo.prefix}` %>"
+                            placeholder="<%= `${guildInfo.prefix}` %>" />
+                          <h5>Exemplo</h5>
+                          <div class="discord-message-helper"
+                            style="display: flex; flex-direction: column; justify-content: center; font-family: Lato,Helvetica Neue,Helvetica,Arial,sans-serif;">
+                            <div style="display: flex; align-items: center;">
+                              <div style="display: flex; flex-direction: column; margin-right: 10px;">
+                                <img
+                                  src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=512%>"
+                                  style="border-radius: 100%;" width="40" />
+                              </div>
+                              <div style="display: flex; flex-direction: column;">
+                                <div style="font-weight: 600;">
+                                  <%= `${user.username}` %>
                                 </div>
-                                <div style="display: flex; flex-direction: column;">
-                                  <div style="font-weight: 600;">
-                                    <%= `${user.username}` %>
-                                  </div>
-                                  <div>
-                                    <span class="prefixPreview"
-                                      id="command-prefix-preview"><%= `${guildInfo.prefix}` %></span><span>ping</span>
-                                  </div>
+                                <div>
+                                  <span class="prefixPreview"
+                                    id="command-prefix-preview"><%= `${guildInfo.prefix}` %></span><span>ping</span>
                                 </div>
                               </div>
-                              <div>
-                                <hr />
+                            </div>
+                            <div>
+                              <hr />
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                              <div style="display: flex; flex-direction: column; margin-right: 10px;">
+                                <img src="<%=client.displayAvatarURL%>" style="border-radius: 100%;" width="40" />
                               </div>
-                              <div style="display: flex; align-items: center;">
-                                <div style="display: flex; flex-direction: column; margin-right: 10px;">
-                                  <img src="<%=client.displayAvatarURL%>" style="border-radius: 100%;" width="40" />
+                              <div style="display: flex; flex-direction: column;">
+                                <div style="font-weight: 600;">
+                                  <%=client.username%>
                                 </div>
-                                <div style="display: flex; flex-direction: column;">
-                                  <div style="font-weight: 600;">
-                                    <%=client.username%>
-                                  </div>
-                                  <div>
-                                    <b><span class="discord-mention">@<%= `${user.username}` %></span>
-                                      Pong!</b>
-                                  </div>
+                                <div>
+                                  <b><span class="discord-mention">@<%= `${user.username}` %></span>
+                                    Pong!</b>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <div class="save">
-                            <button type="submit">Salvar</button>
-                          </div>
+                        </div>
+                        <div class="save">
+                          <button type="submit">Salvar</button>
+                        </div>
                       </div>
                       <!-- Configuração Geral -->
                       <div class="tab-pane fade show" id="v-pills-general" role="tabpanel"
@@ -183,105 +186,105 @@
 
 
 
-                          <div class="other-configs">
+                        <div class="other-configs">
 
-                            <div class="toggleable-wrapper">
-                              <div class="information">
-                                <h4>Outras Configurações</h4>
+                          <div class="toggleable-wrapper">
+                            <div class="information">
+                              <h4>Outras Configurações</h4>
 
-                                <div>
-                                  Canais liberados para uso de comandos
-                                </div>
-                                <div class="sub-text">
-                                  Nos canais selecionados o uso de comando é
-                                  <strong>liberado</strong>, ou seja,
-                                  usuários da guilda podem executar meus comandos livremente nesses canais.
-                                  <br><i>Caso nenhum canal seja definido o uso de comandos é liberado em todos os canais
-                                    da guilda.</i>
-                                </div>
-                                <form method="POST" action="#">
-                                  <select id="select-channel" name="send_CHANNELID" aria-controls="config"
-                                    class="form-control form-control-sm" aria-placeholder="Selecione um canal">
-                                    <option value="" disabled selected>Selecione um canal</option>
+                              <div>
+                                Canais liberados para uso de comandos
+                              </div>
+                              <div class="sub-text">
+                                Nos canais selecionados o uso de comando é
+                                <strong>liberado</strong>, ou seja,
+                                usuários da guilda podem executar meus comandos livremente nesses canais.
+                                <br><i>Caso nenhum canal seja definido o uso de comandos é liberado em todos os canais
+                                  da guilda.</i>
+                              </div>
+                              <form method="POST" action="#">
+                                <select id="select-channel" name="send_CHANNELID" aria-controls="config"
+                                  class="form-control form-control-sm" aria-placeholder="Selecione um canal">
+                                  <option value="" disabled selected>Selecione um canal</option>
 
-                                    <% guild.channels.filter(c => c.type ===
+                                  <% guild.channels.filter(c => c.type ===
                                 'text').filter(c => c.permissionsFor(client)
                                 .has("SEND_MESSAGES") &&
                                 c.permissionsFor(client)
                                 .has("READ_MESSAGES")).forEach(c => { %>
-                                    <option value="<%= c.id %>" <% if (containsCommandChannel(c)) { %>disabled<% } %>>
-                                      #<%= c.name %></option>
-                                    <% }); %>
-
-                                  </select>
-                                  <button type="button" class="addBtn" id="select-channel-btn">
-                                    Adicionar
-                                  </button>
-                                </form>
-                                <div id="selected-channel-list">
-                                  <div style="display: none" id="selected-channel-base">
-                                    <span name="channel-name"></span>&nbsp;<span id="delete-selected-channel"
-                                      style="cursor: pointer" title="Remover canal">&times;</span>
-                                  </div>
-                                  <% guildInfo.config.cmdChannels.forEach(c => { %>
-                                  <div id="selected-channel" data-created="true" data-channel-id="<%= c %>">
-                                    #<%= guild.channels.get(c).name %>&nbsp;<span id="delete-selected-channel"
-                                      style="cursor: pointer" title="Remover canal">&times;</span>
-                                  </div>
+                                  <option value="<%= c.id %>" <% if (containsCommandChannel(c)) { %>disabled<% } %>>
+                                    #<%= c.name %></option>
                                   <% }); %>
+
+                                </select>
+                                <button type="button" class="addBtn" id="select-channel-btn">
+                                  Adicionar
+                                </button>
+                              </form>
+                              <div id="selected-channel-list">
+                                <div style="display: none" id="selected-channel-base">
+                                  <span name="channel-name"></span>&nbsp;<span id="delete-selected-channel"
+                                    style="cursor: pointer" title="Remover canal">&times;</span>
                                 </div>
+                                <% guildInfo.config.cmdChannels.forEach(c => { %>
+                                <div id="selected-channel" data-created="true" data-channel-id="<%= c %>">
+                                  #<%= guild.channels.get(c).name %>&nbsp;<span id="delete-selected-channel"
+                                    style="cursor: pointer" title="Remover canal">&times;</span>
+                                </div>
+                                <% }); %>
                               </div>
-                            </div>
-
-                            <div class="toggleable-wrapper">
-                              <div class="information">
-                                <div>
-                                  Deletar mensagem do usuário ao executar um
-                                  comando
-                                </div>
-                                <div class="sub-text">
-                                  Ao executar um comando, eu irei deletar a
-                                  mensagem do usuário.
-                                </div>
-                              </div>
-                              <label class="switch" for="delete-message-after-command">
-
-                                <% if (guildInfo.config.deleteMessage) { %>
-                                <input type="checkbox" id="delete-message-after-command" checked />
-                                <% } else {%>
-                                <input type="checkbox" id="delete-message-after-command" unchecked>
-                                <% } %>
-                                <div class="slider round"></div></label>
-                            </div>
-
-                            <div class="toggleable-wrapper">
-                              <div class="information">
-                                <div>
-                                  Enviar mensagem para o usuário quando executar
-                                  comandos em canais proibidos
-                                </div>
-                                <div class="sub-text">
-                                  Caso você tenha configurado canais para o uso
-                                  de comandos você pode ativar essa opção para
-                                  que, quando um usuário tentar usar um comando
-                                  em outro canal, eu avise que não é possível.
-                                </div>
-                              </div>
-                              <label class="switch" for="warn-if-blacklisted">
-                                <% if (guildInfo.config.forbiddenChannelMsg) { %>
-                                <input type="checkbox" id="warn-if-blacklisted" checked />
-                                <% } else {%>
-                                <input type="checkbox" id="warn-if-blacklisted" unchecked>
-                                <% } %>
-                                <div class="slider round"></div></label>
-                            </div>
-
-                            <div class="save">
-                              <button type="submit">Salvar</button>
                             </div>
                           </div>
+
+                          <div class="toggleable-wrapper">
+                            <div class="information">
+                              <div>
+                                Deletar mensagem do usuário ao executar um
+                                comando
+                              </div>
+                              <div class="sub-text">
+                                Ao executar um comando, eu irei deletar a
+                                mensagem do usuário.
+                              </div>
+                            </div>
+                            <label class="switch" for="delete-message-after-command">
+
+                              <% if (guildInfo.config.deleteMessage) { %>
+                              <input type="checkbox" id="delete-message-after-command" checked />
+                              <% } else {%>
+                              <input type="checkbox" id="delete-message-after-command" unchecked>
+                              <% } %>
+                              <div class="slider round"></div></label>
+                          </div>
+
+                          <div class="toggleable-wrapper">
+                            <div class="information">
+                              <div>
+                                Enviar mensagem para o usuário quando executar
+                                comandos em canais proibidos
+                              </div>
+                              <div class="sub-text">
+                                Caso você tenha configurado canais para o uso
+                                de comandos você pode ativar essa opção para
+                                que, quando um usuário tentar usar um comando
+                                em outro canal, eu avise que não é possível.
+                              </div>
+                            </div>
+                            <label class="switch" for="warn-if-blacklisted">
+                              <% if (guildInfo.config.forbiddenChannelMsg) { %>
+                              <input type="checkbox" id="warn-if-blacklisted" checked />
+                              <% } else {%>
+                              <input type="checkbox" id="warn-if-blacklisted" unchecked>
+                              <% } %>
+                              <div class="slider round"></div></label>
+                          </div>
+
+                          <div class="save">
+                            <button type="submit">Salvar</button>
+                          </div>
+                        </div>
                       </div>
-                    
+
                       <!-- PERMISSÕES -->
 
                       <div class="tab-pane fade show" id="v-pills-perms" role="tabpanel"
@@ -289,86 +292,92 @@
                         <div class="roles">
                           <div class="role">
 
-                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                              aria-orientation="vertical">
 
 
                               <% guild.roles.sort((b, a) => a.comparePositionTo(b)).filter(r => r.name !==
                                 '@everyone').forEach(r => { %>
-                              <a class="nav-link" id="<%= r.id %>-tab" data-toggle="pill" href="#v-<%= r.id %>" role="tab" aria-controls="<%= r.id %>" aria-selected="true"><%= r.name %></a>
+                              <a class="nav-link" id="<%= r.id %>-tab" data-toggle="pill" href="#v-<%= r.id %>"
+                                role="tab" aria-controls="<%= r.id %>" aria-selected="true"><%= r.name %></a>
                               <% }); %>
                             </div>
                           </div>
 
                           <div class="perms">
                             <div class="tab-content" id="v-pills-tabContent">
-
                               <% guild.roles.forEach(r => { %>
-                                <div class="tab-pane fade" id="v-<%= r.id %>" role="tabpanel" aria-labelledby="<%= r.id %>-tab">
-                                  <!-- <%= r.name %> -->
+                              <div class="tab-pane fade" id="v-<%= r.id %>" role="tabpanel"
+                                aria-labelledby="<%= r.id %>-tab">
+                                <!-- <%= r.name %> -->
 
-                                  <div class="toggleable-wrapper">
-                                    <div class="information">
-                                      <div>
-                                        Definir como Administrador
-                                      </div>
-                                      <div class="sub-text">
-                                        Essa opção define o cargo como administrador, dando a ele a permissão <strong>Administrador</strong> dentro do servidor.
-                                      </div>
+                                <div class="toggleable-wrapper">
+                                  <div class="information">
+                                    <div>
+                                      Definir como Administrador
                                     </div>
-                                    <label class="switch" for="set-admin-role">
-                                      <% if (guildInfo.config.setAdmin) { %>
-                                      <input type="checkbox" id="set-admin-role" checked />
-                                      <% } else {%>
-                                      <input type="checkbox" id="set-admin-role" unchecked>
-                                      <% } %>
-                                      <div class="slider round"></div></label>
-                                  </div>
-
-                                  <div class="toggleable-wrapper">
-                                    <div class="information">
-                                      <div>
-                                        Definir como Moderador
-                                      </div>
-                                      <div class="sub-text">
-                                        Essa opção define o cargo como moderador, dando a ele as permissões <strong>para punir outros membros</strong> e <strong>gerenciar o chat</strong> dentro do servidor.
-                                      </div>
+                                    <div class="sub-text">
+                                      Essa opção define o cargo como administrador, dando a ele a permissão
+                                      <strong>Administrador</strong> dentro do servidor.
                                     </div>
-                                    <label class="switch" for="set-mod-role">
-                                      <% if (guildInfo.config.setMod) { %>
-                                      <input type="checkbox" id="set-mod-role" checked />
-                                      <% } else {%>
-                                      <input type="checkbox" id="set-mod-role" unchecked>
-                                      <% } %>
-                                      <div class="slider round"></div></label>
                                   </div>
-
-                                  
-                                  <div class="toggleable-wrapper">
-                                    <div class="information">
-                                      <div>
-                                        Definir como DJ
-                                      </div>
-                                      <div class="sub-text">
-                                        Essa opção define o cargo como DJ, dando a ele a permissão <strong>para tocar música</strong> dentro do servidor.
-                                      </div>
-                                    </div>
-                                    <label class="switch" for="set-dj-role">
-                                      <% if (guildInfo.config.setDJ) { %>
-                                      <input type="checkbox" id="set-dj-role" checked />
-                                      <% } else {%>
-                                      <input type="checkbox" id="set-dj-role" unchecked>
-                                      <% } %>
-                                      <div class="slider round"></div></label>
-                                  </div>
-                                                 
-                          <div class="save">
-                            <button type="submit">Salvar</button>
-                          </div>
+                                  <label class="switch" for="set-admin-role">
+                                    <% if (guildInfo.config.setAdmin) { %>
+                                    <input type="checkbox" id="set-admin-role" checked />
+                                    <% } else {%>
+                                    <input type="checkbox" id="set-admin-role" unchecked>
+                                    <% } %>
+                                    <div class="slider round"></div></label>
                                 </div>
+
+                                <div class="toggleable-wrapper">
+                                  <div class="information">
+                                    <div>
+                                      Definir como Moderador
+                                    </div>
+                                    <div class="sub-text">
+                                      Essa opção define o cargo como moderador, dando a ele as permissões <strong>para
+                                        punir outros membros</strong> e <strong>gerenciar o chat</strong> dentro do
+                                      servidor.
+                                    </div>
+                                  </div>
+                                  <label class="switch" for="set-mod-role">
+                                    <% if (guildInfo.config.setMod) { %>
+                                    <input type="checkbox" id="set-mod-role" checked />
+                                    <% } else {%>
+                                    <input type="checkbox" id="set-mod-role" unchecked>
+                                    <% } %>
+                                    <div class="slider round"></div></label>
+                                </div>
+
+
+                                <div class="toggleable-wrapper">
+                                  <div class="information">
+                                    <div>
+                                      Definir como DJ
+                                    </div>
+                                    <div class="sub-text">
+                                      Essa opção define o cargo como DJ, dando a ele a permissão <strong>para tocar
+                                        música</strong> dentro do servidor.
+                                    </div>
+                                  </div>
+                                  <label class="switch" for="set-dj-role">
+                                    <% if (guildInfo.config.setDJ) { %>
+                                    <input type="checkbox" id="set-dj-role" checked />
+                                    <% } else {%>
+                                    <input type="checkbox" id="set-dj-role" unchecked>
+                                    <% } %>
+                                    <div class="slider round"></div></label>
+                                </div>
+
+                                <div class="save">
+                                  <button type="submit">Salvar</button>
+                                </div>
+                              </div>
                               <% }); %>
                             </div>
                           </div>
-                          
+
 
                         </div>
                       </div>
@@ -376,7 +385,288 @@
                       <!-- MODERAÇÃO -->
                       <div class="tab-pane fade show" id="v-pills-mod" role="tabpanel"
                         aria-labelledby="v-pills-mod-tab">
-                        <span>aa</span>
+                        <div class="moderation">
+                          <div class="toggleable-wrapper">
+                            <div class="information">
+                              <h4>Moderação</h4>
+
+                              <div>
+                                Ativar modulo
+                              </div>
+                              <div class="sub-text">
+                                Ativando essa função você pode gerenciar os sistemas de moderação e otimizar cada passo para
+                                que nada saia do controle!
+                              </div>
+                            </div>
+                            <label class="switch" for="activate-mod">
+
+                              <% if (guildInfo.config.moderation.enabled) { %>
+                              <input target="#mod-module" type="checkbox" id="activate-mod" checked />
+                              <% } else {%>
+                              <input target="#mod-module" type="checkbox" id="activate-mod" unchecked>
+                              <% } %>
+                              <div class="slider round"></div>
+                            </label>
+
+                          </div>
+
+                          <div id="mod-module" class="module-activate" class="blur">
+
+                            <div class="toggleable-wrapper">
+                              <div class="information">
+                                <div>
+                                  Ativar mensagem de punição
+                                </div>
+                                <div class="sub-text">
+                                  Quando o usuário for punido, uma mensagem será enviada em um canal mostrando o motivo da punição.
+                                </div>
+                              </div>
+                              <label class="switch" for="send-punish-message">
+
+                                <% if (guildInfo.config.moderation.sendMessage) { %>
+                                <input target="#punish-options" type="checkbox" id="send-punish-message" checked />
+                                <% } else {%>
+                                <input target="#punish-options" type="checkbox" id="send-punish-message" unchecked>
+                                <% } %>
+                                <div class="slider round"></div>
+                              </label>
+
+                            </div>
+
+                            <div id="punish-options" class="module-activate" class="blur">
+                              <div class="toggleable-wrapper">
+                                <div class="information">
+
+                                  <div>
+                                    Canal de Punições
+                                  </div>
+                                  <form method="POST" action="#">
+                                    <select id="select-welcome-channel" name="send_CHANNELID" aria-controls="config"
+                                      class="form-control form-control-sm" aria-placeholder="Selecione um canal">
+                                      <option value="" disabled selected>
+                                        <%= `${guild.channels.get(guildInfo.config.messages.welcome.channel) ? guild.channels.get(guildInfo.config.messages.welcome.channel).name : 'Selecione um canal'}` %>
+                                      </option>
+
+                                      <% guild.channels.filter(c => c.type ===
+                                  'text').filter(c => c.permissionsFor(client)
+                                  .has("SEND_MESSAGES") &&
+                                  c.permissionsFor(client)
+                                  .has("READ_MESSAGES")).forEach(c => { %>
+                                      <option value="<%= c.id %>" <% if (containsCommandChannel(c)) { %>disabled<% } %>>
+                                        #<%= c.name %></option>
+                                      <% }); %>
+
+                                    </select>
+                                  </form>
+                                </div>
+                              </div>
+
+                              <div class="toggleable-wrapper">
+                                <div class="information">
+                                  <div>
+                                    Mensagem enviada ao punir um usuário
+                                  </div>
+                                  <form method="POST" action="#">
+
+                                    <textarea class="form-control" id="punish-message"
+                                      rows="3"><%= guildInfo.config.moderation.punishMessage %></textarea>
+                                  </form>
+
+                                  <button type="button" class="placeholder">
+                                    Placeholders
+                                  </button>
+                                  <div class="placeholder-list">
+                                    <ul>
+                                      <li><strong>{usuario.id}</strong> Pega o id do usuário. Exemplo: <%=user.id%></li>
+                                      <li><strong>{usuario.nome}</strong> Pega o nome do usuário. Exemplo:
+                                        <%=user.username%></li>
+                                      <li><strong>{usuario.tagnome}</strong> Pega o nome e tag do usuário. Exemplo:
+                                        <%=user.username%>#<%=user.discriminator%></li>
+                                      <li><strong>{usuario.tag}</strong> Pega a tag do usuário. Exemplo:
+                                        <%=user.discriminator%></li>
+                                      <li><strong>{servidor}</strong> Pega o nome do servidor. Exemplo: <%=guild.name%>
+                                      </li>
+                                      <li><strong>{staff}</strong> Pega o nome do staff que aplicou a punição. Exemplo: <%=user.username%>
+                                      </li>
+                                      <li><strong>{usuarios}</strong> Pega a quantidade de usuários na guilda. Exemplo:
+                                        <%=guild.memberCount%></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+
+
+                          </div>
+
+                          
+                          <div class="toggleable-wrapper">
+                            <div class="information">
+                              <h4>AutoMOD</h4>
+
+                              <div>
+                                Ativar modulo
+                              </div>
+                              <div class="sub-text">
+                                Ativando essa função você pode automatizar ações para punir membros.
+                              </div>
+                            </div>
+                            <label class="switch" for="activate-automod">
+
+                              <% if (guildInfo.config.moderation.autoMod.enabled) { %>
+                              <input target="#automod-module" type="checkbox" id="activate-automod" checked />
+                              <% } else {%>
+                              <input target="#automod-module" type="checkbox" id="activate-automod" unchecked>
+                              <% } %>
+                              <div class="slider round"></div>
+                            </label>
+
+                          </div>
+
+                          <div id="automod-module" class="module-activate" class="blur">
+                            <div class="options">
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <div class="toggleable-wrapper">
+                                    <div class="information">
+    
+                                      <div>
+                                        Palavras Impróprias
+                                      </div>
+                                      <form method="POST" action="#">
+                                        <select id="select-welcome-channel" name="send_CHANNELID" aria-controls="config"
+                                          class="form-control form-control-sm" aria-placeholder="Selecione um canal">
+                                          <option value="" disabled selected>
+                                            <%= `${guild.channels.get(guildInfo.config.messages.welcome.channel) ? guild.channels.get(guildInfo.config.messages.welcome.channel).name : 'Desativado'}` %>
+                                          </option>
+    
+                                          <% guild.channels.filter(c => c.type ===
+                                      'text').filter(c => c.permissionsFor(client)
+                                      .has("SEND_MESSAGES") &&
+                                      c.permissionsFor(client)
+                                      .has("READ_MESSAGES")).forEach(c => { %>
+                                          <option value="<%= c.id %>" <% if (containsCommandChannel(c)) { %>disabled<% } %>>
+                                            #<%= c.name %></option>
+                                          <% }); %>
+    
+                                        </select>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                  <div class="toggleable-wrapper">
+                                    <div class="information">
+    
+                                      <div>
+                                        Textos repetidos (SPAM)
+                                      </div>
+                                      <form method="POST" action="#">
+                                        <select id="select-welcome-channel" name="send_CHANNELID" aria-controls="config"
+                                          class="form-control form-control-sm" aria-placeholder="Selecione um canal">
+                                          <option value="" disabled selected>
+                                            <%= `${guild.channels.get(guildInfo.config.messages.welcome.channel) ? guild.channels.get(guildInfo.config.messages.welcome.channel).name : 'Desativado'}` %>
+                                          </option>
+    
+                                          <option value="">Opção 1</option>
+                                          <option value="">Opção 2</option>
+                                          <option value="">Opção 3</option>
+                                          <option value="">Opção 4</option>
+                                        </select>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                  <div class="toggleable-wrapper">
+                                    <div class="information">
+    
+                                      <div>
+                                        Excesso de Capslock
+                                      </div>
+                                      <form method="POST" action="#">
+                                        <select id="select-welcome-channel" name="send_CHANNELID" aria-controls="config"
+                                          class="form-control form-control-sm" aria-placeholder="Selecione um canal">
+                                          <option value="" disabled selected>
+                                            <%= `${guild.channels.get(guildInfo.config.messages.welcome.channel) ? guild.channels.get(guildInfo.config.messages.welcome.channel).name : 'Desativado'}` %>
+                                          </option>
+    
+                                          <option value="">Opção 1</option>
+                                          <option value="">Opção 2</option>
+                                          <option value="">Opção 3</option>
+                                          <option value="">Opção 4</option>
+                                        </select>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                  <div class="toggleable-wrapper">
+                                    <div class="information">
+    
+                                      <div>
+                                        Excesso de Menção
+                                      </div>
+                                      <form method="POST" action="#">
+                                        <select id="select-welcome-channel" name="send_CHANNELID" aria-controls="config"
+                                          class="form-control form-control-sm" aria-placeholder="Selecione um canal">
+                                          <option value="" disabled selected>
+                                            <%= `${guild.channels.get(guildInfo.config.messages.welcome.channel) ? guild.channels.get(guildInfo.config.messages.welcome.channel).name : 'Desativado'}` %>
+                                          </option>
+    
+                                          <option value="">Opção 1</option>
+                                          <option value="">Opção 2</option>
+                                          <option value="">Opção 3</option>
+                                          <option value="">Opção 4</option>
+                                        </select>
+                                      </form>
+                                    </div>
+                                  </div>
+    
+                                </div>
+
+                                <div class="col-md-4">
+                                  <div class="toggleable-wrapper">
+                                    <div class="information">
+    
+                                      <div>
+                                        Excesso de Emojis
+                                      </div>
+                                      <form method="POST" action="#">
+                                        <select id="select-welcome-channel" name="send_CHANNELID" aria-controls="config"
+                                          class="form-control form-control-sm" aria-placeholder="Selecione um canal">
+                                          <option value="" disabled selected>
+                                            <%= `${guild.channels.get(guildInfo.config.messages.welcome.channel) ? guild.channels.get(guildInfo.config.messages.welcome.channel).name : 'Desativado'}` %>
+                                          </option>
+    
+                                          <option value="">Opção 1</option>
+                                          <option value="">Opção 2</option>
+                                          <option value="">Opção 3</option>
+                                          <option value="">Opção 4</option>
+                                        </select>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+        
+
+
+
+                              
+
+                              
+                            </div>
+                          </div>
+
+                          <div class="save">
+                            <button type="submit">Salvar</button>
+                          </div>
+                        </div>
                       </div>
 
                       <!-- Welcome/Leave Message -->
@@ -391,11 +681,12 @@
                                 Ativar modulo
                               </div>
                               <div class="sub-text">
-                                Ativando essa função você pode definir mensagens personalizadas para entrada e saida de membros do servidor.
+                                Ativando essa função você pode definir mensagens personalizadas para entrada e saida de
+                                membros do servidor.
                               </div>
                             </div>
                             <label class="switch" for="activate-wl-message">
-  
+
                               <% if (guildInfo.config.messages.enabled) { %>
                               <input target="#welcome-module" type="checkbox" id="activate-wl-message" checked />
                               <% } else {%>
@@ -403,7 +694,7 @@
                               <% } %>
                               <div class="slider round"></div>
                             </label>
-                            
+
                           </div>
                           <div id="welcome-module" class="module-activate" class="blur">
                             <!-- WELCOME CONFIG -->
@@ -417,11 +708,12 @@
                                     Ativar mensagem
                                   </div>
                                   <div class="sub-text">
-                                    Ativando essa função você pode definir mensagens personalizadas para <strong>entrada</strong> de membros no servidor.
+                                    Ativando essa função você pode definir mensagens personalizadas para
+                                    <strong>entrada</strong> de membros no servidor.
                                   </div>
                                 </div>
                                 <label class="switch" for="activate-welcome-message">
-      
+
                                   <% if (guildInfo.config.messages.welcome.enabled) { %>
                                   <input type="checkbox" id="activate-welcome-message" checked />
                                   <% } else {%>
@@ -429,20 +721,22 @@
                                   <% } %>
                                   <div class="slider round"></div>
                                 </label>
-                                
+
                               </div>
 
                               <div class="toggleable-wrapper">
                                 <div class="information">
-  
+
                                   <div>
                                     Definir canal
                                   </div>
                                   <form method="POST" action="#">
                                     <select id="select-welcome-channel" name="send_CHANNELID" aria-controls="config"
                                       class="form-control form-control-sm" aria-placeholder="Selecione um canal">
-                                      <option value="" disabled selected><%= `${guild.channels.get(guildInfo.config.messages.welcome.channel) ? guild.channels.get(guildInfo.config.messages.welcome.channel).name : 'Selecione um canal'}` %></option>
-  
+                                      <option value="" disabled selected>
+                                        <%= `${guild.channels.get(guildInfo.config.messages.welcome.channel) ? guild.channels.get(guildInfo.config.messages.welcome.channel).name : 'Selecione um canal'}` %>
+                                      </option>
+
                                       <% guild.channels.filter(c => c.type ===
                                   'text').filter(c => c.permissionsFor(client)
                                   .has("SEND_MESSAGES") &&
@@ -451,13 +745,13 @@
                                       <option value="<%= c.id %>" <% if (containsCommandChannel(c)) { %>disabled<% } %>>
                                         #<%= c.name %></option>
                                       <% }); %>
-  
+
                                     </select>
                                   </form>
                                 </div>
                               </div>
 
-                              
+
                               <div class="toggleable-wrapper">
                                 <div class="information">
                                   <div>
@@ -465,28 +759,34 @@
                                   </div>
                                   <form method="POST" action="#">
 
-                                  <textarea class="form-control" id="welcome-message" rows="1"><%= guildInfo.config.messages.welcome.message %></textarea>
-                                </form>
-                                
-                                <button type="button" class="placeholder">
-                                  Placeholders
-                                </button>
+                                    <textarea class="form-control" id="welcome-message"
+                                      rows="1"><%= guildInfo.config.messages.welcome.message %></textarea>
+                                  </form>
+
+                                  <button type="button" class="placeholder">
+                                    Placeholders
+                                  </button>
                                   <div class="placeholder-list">
                                     <ul>
                                       <li><strong>{usuario.id}</strong> Pega o id do usuário. Exemplo: <%=user.id%></li>
-                                      <li><strong>{usuario.nome}</strong> Pega o nome do usuário. Exemplo: <%=user.username%></li>
-                                      <li><strong>{usuario.tagnome}</strong> Pega o nome e tag do usuário. Exemplo: <%=user.username%>#<%=user.discriminator%></li>
-                                      <li><strong>{usuario.tag}</strong> Pega a tag do usuário. Exemplo: <%=user.discriminator%></li>
-                                      <li><strong>{servidor}</strong> Pega o nome do servidor. Exemplo: <%=guild.name%></li>
-                                      <li><strong>{usuarios}</strong> Pega a quantidade de usuários na guilda. Exemplo: <%=guild.memberCount%></li>
+                                      <li><strong>{usuario.nome}</strong> Pega o nome do usuário. Exemplo:
+                                        <%=user.username%></li>
+                                      <li><strong>{usuario.tagnome}</strong> Pega o nome e tag do usuário. Exemplo:
+                                        <%=user.username%>#<%=user.discriminator%></li>
+                                      <li><strong>{usuario.tag}</strong> Pega a tag do usuário. Exemplo:
+                                        <%=user.discriminator%></li>
+                                      <li><strong>{servidor}</strong> Pega o nome do servidor. Exemplo: <%=guild.name%>
+                                      </li>
+                                      <li><strong>{usuarios}</strong> Pega a quantidade de usuários na guilda. Exemplo:
+                                        <%=guild.memberCount%></li>
                                     </ul>
                                   </div>
                                 </div>
                               </div>
 
-                              
+
                             </div>
-                            
+
                             <!-- LEAVE CONFIG -->
                             <div class="leaveConfig">
                               <h4>Saida</h4>
@@ -497,11 +797,12 @@
                                     Ativar mensagem
                                   </div>
                                   <div class="sub-text">
-                                    Ativando essa função você pode definir mensagens personalizadas para <strong>saida</strong> de membros no servidor.
+                                    Ativando essa função você pode definir mensagens personalizadas para
+                                    <strong>saida</strong> de membros no servidor.
                                   </div>
                                 </div>
                                 <label class="switch" for="activate-leave-message">
-      
+
                                   <% if (guildInfo.config.messages.leave.enabled) { %>
                                   <input type="checkbox" id="activate-leave-message" checked />
                                   <% } else {%>
@@ -509,20 +810,22 @@
                                   <% } %>
                                   <div class="slider round"></div>
                                 </label>
-                                
+
                               </div>
 
                               <div class="toggleable-wrapper">
                                 <div class="information">
-  
+
                                   <div>
                                     Definir canal
                                   </div>
                                   <form method="POST" action="#">
                                     <select id="select-leave-channel" name="send_CHANNELID" aria-controls="config"
                                       class="form-control form-control-sm" aria-placeholder="Selecione um canal">
-                                      <option value="" disabled selected><%= `${guild.channels.get(guildInfo.config.messages.leave  .channel) ? guild.channels.get(guildInfo.config.messages.leave.channel).name : 'Selecione um canal'}` %></option>
-  
+                                      <option value="" disabled selected>
+                                        <%= `${guild.channels.get(guildInfo.config.messages.leave  .channel) ? guild.channels.get(guildInfo.config.messages.leave.channel).name : 'Selecione um canal'}` %>
+                                      </option>
+
                                       <% guild.channels.filter(c => c.type ===
                                   'text').filter(c => c.permissionsFor(client)
                                   .has("SEND_MESSAGES") &&
@@ -531,7 +834,7 @@
                                       <option value="<%= c.id %>" <% if (containsCommandChannel(c)) { %>disabled<% } %>>
                                         #<%= c.name %></option>
                                       <% }); %>
-  
+
                                     </select>
                                   </form>
                                 </div>
@@ -545,20 +848,26 @@
                                   </div>
                                   <form method="POST" action="#">
 
-                                  <textarea class="form-control" id="leave-message" rows="1"><%= guildInfo.config.messages.leave.message %></textarea>
-                                </form>
-                                
-                                <button type="button" class="placeholder">
-                                  Placeholders
-                                </button>
+                                    <textarea class="form-control" id="leave-message"
+                                      rows="1"><%= guildInfo.config.messages.leave.message %></textarea>
+                                  </form>
+
+                                  <button type="button" class="placeholder">
+                                    Placeholders
+                                  </button>
                                   <div class="placeholder-list">
                                     <ul>
                                       <li><strong>{usuario.id}</strong> Pega o id do usuário. Exemplo: <%=user.id%></li>
-                                      <li><strong>{usuario.nome}</strong> Pega o nome do usuário. Exemplo: <%=user.username%></li>
-                                      <li><strong>{usuario.tagnome}</strong> Pega o nome e tag do usuário. Exemplo: <%=user.username%>#<%=user.discriminator%></li>
-                                      <li><strong>{usuario.tag}</strong> Pega a tag do usuário. Exemplo: <%=user.discriminator%></li>
-                                      <li><strong>{servidor}</strong> Pega o nome do servidor. Exemplo: <%=guild.name%></li>
-                                      <li><strong>{usuarios}</strong> Pega a quantidade de usuários na guilda. Exemplo: <%=guild.memberCount%></li>
+                                      <li><strong>{usuario.nome}</strong> Pega o nome do usuário. Exemplo:
+                                        <%=user.username%></li>
+                                      <li><strong>{usuario.tagnome}</strong> Pega o nome e tag do usuário. Exemplo:
+                                        <%=user.username%>#<%=user.discriminator%></li>
+                                      <li><strong>{usuario.tag}</strong> Pega a tag do usuário. Exemplo:
+                                        <%=user.discriminator%></li>
+                                      <li><strong>{servidor}</strong> Pega o nome do servidor. Exemplo: <%=guild.name%>
+                                      </li>
+                                      <li><strong>{usuarios}</strong> Pega a quantidade de usuários na guilda. Exemplo:
+                                        <%=guild.memberCount%></li>
                                     </ul>
                                   </div>
                                 </div>
@@ -566,14 +875,14 @@
 
                             </div>
 
-                            
-
-                            
 
 
-                            
+
+
+
+
                           </div>
-                          
+
                           <div class="save">
                             <button type="submit">Salvar</button>
                           </div>
@@ -584,7 +893,7 @@
                       <!-- AUTOROLE -->
                       <div class="tab-pane fade show" id="v-pills-autorole" role="tabpanel"
                         aria-labelledby="v-pills-autorole-tab">
-                        
+
                         <div class="autorole">
                           <div class="toggleable-wrapper">
                             <div class="information">
@@ -593,12 +902,13 @@
                                 Ativar autorole
                               </div>
                               <div class="sub-text">
-                                Ativando essa função você pode definir cargos para que os membros do servidor ganhem ao entrar.
+                                Ativando essa função você pode definir cargos para que os membros do servidor ganhem ao
+                                entrar.
                                 Você pode definir mais de um cargo para que o membro receba ao entrar na guilda!
                               </div>
                             </div>
                             <label class="switch" for="activate-autorole">
-  
+
                               <% if (guildInfo.config.autoRole.enabled) { %>
                               <input type="checkbox" id="activate-autorole" checked />
                               <% } else {%>
@@ -614,7 +924,7 @@
                                 Definir cargos
                               </div>
                               <form method="POST" action="#">
-                                
+
                                 <select id="select-role" name="send_ROLEID" aria-controls="config"
                                   class="form-control form-control-sm" aria-placeholder="Selecione um cargo">
                                   <option value="" disabled selected>Selecione um cargo</option>
@@ -622,8 +932,9 @@
                                   <% guild.roles.filter(r => r.name !==
                                 '@everyone').forEach(r => { %>
                                   <option value="<%= r.id %>" <% if (getRoles(r)) { %>disabled<% } %>>
-                                    <%= r.name %> <% if (r.managed) { %><span class="integration"> Integração</span><% } %></option>
-                                  <% }); %> 
+                                    <%= r.name %> <% if (r.managed) { %><span class="integration">
+                                      Integração</span><% } %></option>
+                                  <% }); %>
 
                                 </select>
                                 <button type="button" class="addBtn" id="select-role-btn">
@@ -670,11 +981,12 @@
                                 Ativar modulo
                               </div>
                               <div class="sub-text">
-                                Ativando essa função você pode bloquear/gerenciar invites de outros servidores de serem enviados no chat.
+                                Ativando essa função você pode bloquear/gerenciar invites de outros servidores de serem
+                                enviados no chat.
                               </div>
                             </div>
                             <label class="switch" for="activate-block-invite">
-  
+
                               <% if (guildInfo.config.antiInvite.enabled) { %>
                               <input target="#anti-invite" type="checkbox" id="activate-block-invite" checked />
                               <% } else {%>
@@ -682,23 +994,23 @@
                               <% } %>
                               <div class="slider round"></div>
                             </label>
-                            
+
                           </div>
 
                           <div id="anti-invite" class="module-activate">
-                            
+
                             <div class="toggleable-wrapper">
                               <div class="information">
                                 <div>
                                   Deletar mensagem com convite
                                 </div>
-                                
+
                                 <div class="sub-text">
                                   Quando essa função estiver ativa as mensagens que contiverem convites seram deletadas.
                                 </div>
                               </div>
                               <label class="switch" for="activate-delete-invites">
-  
+
                                 <% if (guildInfo.config.antiInvite.deleteInvite) { %>
                                 <input type="checkbox" id="activate-delete-invites" checked />
                                 <% } else {%>
@@ -713,13 +1025,13 @@
                                 <div>
                                   Permitir invites do servidor
                                 </div>
-                                
+
                                 <div class="sub-text">
                                   Quando essa função estiver ativa os convites do servidor não são bloqueados no chat.
                                 </div>
                               </div>
                               <label class="switch" for="activate-allow-invites">
-  
+
                                 <% if (guildInfo.config.antiInvite.allowGuildInvites) { %>
                                 <input type="checkbox" id="activate-allow-invites" checked />
                                 <% } else {%>
@@ -734,13 +1046,13 @@
                                 <div>
                                   Enviar mensagem quando um invite for detectado
                                 </div>
-                                
+
                                 <div class="sub-text">
                                   Quando essa função estiver ativa uma mensagem será enviada após deletar um convite.
                                 </div>
                               </div>
                               <label class="switch" for="activate-send-message">
-  
+
                                 <% if (guildInfo.config.antiInvite.sendMessage) { %>
                                 <input target="#send-message" type="checkbox" id="activate-send-message" checked />
                                 <% } else {%>
@@ -757,26 +1069,32 @@
                                   </div>
                                   <form method="POST" action="#">
 
-                                  <textarea class="form-control" id="anti-invite-message" rows="1"><%= guildInfo.config.antiInvite.blockMessage %></textarea>
-                                </form>
-                                
-                                <button type="button" class="placeholder">
-                                  Placeholders
-                                </button>
+                                    <textarea class="form-control" id="anti-invite-message"
+                                      rows="1"><%= guildInfo.config.antiInvite.blockMessage %></textarea>
+                                  </form>
+
+                                  <button type="button" class="placeholder">
+                                    Placeholders
+                                  </button>
                                   <div class="placeholder-list">
                                     <ul>
                                       <li><strong>{usuario.id}</strong> Pega o id do usuário. Exemplo: <%=user.id%></li>
-                                      <li><strong>{usuario.nome}</strong> Pega o nome do usuário. Exemplo: <%=user.username%></li>
-                                      <li><strong>{usuario.tagnome}</strong> Pega o nome e tag do usuário. Exemplo: <%=user.username%>#<%=user.discriminator%></li>
-                                      <li><strong>{usuario.tag}</strong> Pega a tag do usuário. Exemplo: <%=user.discriminator%></li>
-                                      <li><strong>{servidor}</strong> Pega o nome do servidor. Exemplo: <%=guild.name%></li>
-                                      <li><strong>{usuarios}</strong> Pega a quantidade de usuários na guilda. Exemplo: <%=guild.memberCount%></li>
+                                      <li><strong>{usuario.nome}</strong> Pega o nome do usuário. Exemplo:
+                                        <%=user.username%></li>
+                                      <li><strong>{usuario.tagnome}</strong> Pega o nome e tag do usuário. Exemplo:
+                                        <%=user.username%>#<%=user.discriminator%></li>
+                                      <li><strong>{usuario.tag}</strong> Pega a tag do usuário. Exemplo:
+                                        <%=user.discriminator%></li>
+                                      <li><strong>{servidor}</strong> Pega o nome do servidor. Exemplo: <%=guild.name%>
+                                      </li>
+                                      <li><strong>{usuarios}</strong> Pega a quantidade de usuários na guilda. Exemplo:
+                                        <%=guild.memberCount%></li>
                                     </ul>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                          
+
 
                             <div class="toggleable-wrapper">
                               <div class="information">
@@ -822,7 +1140,7 @@
                             </div>
 
                           </div>
-                          
+
                           <div class="save">
                             <button type="submit">Salvar</button>
                           </div>
@@ -830,6 +1148,92 @@
                       </div>
 
 
+                      <!--STARBOARD -->
+                      <div class="tab-pane fade show" id="v-pills-starboard" role="tabpanel"
+                        aria-labelledby="v-pills-starboard-tab">
+                        <div class="starboard">
+                          <div class="toggleable-wrapper">
+                            <div class="information">
+                              <h4>Starboard</h4>
+
+                              <div>
+                                Ativar modulo
+                              </div>
+                              <div class="sub-text">
+                                Ativando essa função você pode definir um canal para que mensagens reagidas com ⭐
+                                apareçam nele.
+                              </div>
+                            </div>
+                            <label class="switch" for="activate-starboard">
+
+                              <% if (guildInfo.config.starBoard.enabled) { %>
+                              <input target="#starboard-module" type="checkbox" id="activate-starboard" checked />
+                              <% } else {%>
+                              <input target="#starboard-module" type="checkbox" id="activate-starboard" unchecked>
+                              <% } %>
+                              <div class="slider round"></div>
+                            </label>
+
+                          </div>
+                          <div id="starboard-module" class="module-activate" class="blur">
+                            
+                            <div class="toggleable-wrapper">
+                              <div class="information">
+
+                                <div>
+                                  Definir canal
+                                </div>
+                                <div class="sub-text">
+                                  Defina um canal para starboard
+                                </div>
+                                <form method="POST" action="#">
+                                  <select id="select-starboard-channel" name="send_CHANNELID" aria-controls="config"
+                                    class="form-control form-control-sm" aria-placeholder="Selecione um canal">
+                                    <option value="" disabled selected>
+                                      #<%= `${guild.channels.get(guildInfo.config.starBoard.starChannel) ? guild.channels.get(guildInfo.config.starBoard.starChannel).name : 'Selecione um canal'}` %>
+                                    </option>
+
+                                    <% guild.channels.filter(c => c.type ===
+                                'text').filter(c => c.permissionsFor(client)
+                                .has("SEND_MESSAGES") &&
+                                c.permissionsFor(client)
+                                .has("READ_MESSAGES")).forEach(c => { %>
+                                    <option value="<%= c.id %>" <% if (containsCommandChannel(c)) { %>disabled<% } %>>
+                                      #<%= c.name %></option>
+                                    <% }); %>
+
+                                  </select>
+                                </form>
+                              </div>
+                            </div>
+
+                            <div class="toggleable-wrapper">
+                              <div class="information">
+
+                                <div>
+                                  Mínimo de reações
+                                </div>
+                                <div class="sub-text">
+                                  Defina qual o mínimo necessário de reações para enviar a mensagem para a starboard
+                                </div>
+                                <form method="POST" action="#">
+                                  <input step="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" id="select-starboard-min" min="1" value="<%= `${guildInfo.config.starBoard.minStars || 1}` %>">
+
+                                </form>
+                              </div>
+                            </div>
+
+                          </div>
+
+                          <div class="save">
+                            <button type="submit">Salvar</button>
+                          </div>
+                        </div>
+
+
+
+
+                      </div>
 
                       <div class="tab-pane fade show" id="v-pills-economy" role="tabpanel"
                         aria-labelledby="v-pills-economy-tab">
@@ -861,8 +1265,8 @@
       </div>
     </div>
   </section>
-  
-    
+
+
   <%- include components/footer.ejs %>
 </body>
 
