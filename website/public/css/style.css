@@ -6,6 +6,11 @@
     outline: none !important;
 }
 
+.working {
+    opacity: 20%;
+    pointer-events: none;
+}
+
 body::-webkit-scrollbar-track {
     border-radius: 3px;
     background-color: #f0f0f0;
@@ -357,6 +362,7 @@ h1.username {
     background: #fff;
     text-align: left;
     padding: 25px;
+    font-weight: 500;
     border-radius: 5px;
 }
 
