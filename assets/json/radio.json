@@ -41,5 +41,11 @@
     {"id":36,"name":"Swigg Classic","url":"https://adoclassic.ice.infomaniak.ch/adoclassic-128.mp3","pais": "France"},
     {"id":37,"name":"Swigg Club","url":"https://adoclub.ice.infomaniak.ch/adoclub-128.mp3","pais": "France"},
     {"id":38,"name":"Swigg Dancehall","url":"https://adodancehall.ice.infomaniak.ch/adodancehall-128.mp3","pais": "France"},
-    {"id":39,"name":"Swigg","url":"https://start-adofm.ice.infomaniak.ch/start-adofm-high.mp3","pais": "France"}
+    {"id":39,"name":"Swigg","url":"https://start-adofm.ice.infomaniak.ch/start-adofm-high.mp3","pais": "France"},
+    {"id":40,"name":"Alles Radio","url":"http://stream.laut.fm/alles-radio","pais":"EUA"},
+    {"id":41,"name":"Alles Chill","url":"http://stream.laut.fm/alles-chill","pais":"EUA"},
+    {"id":42,"name":"Alles Dance","url":"http://stream.laut.fm/alles-dance","pais":"EUA"},
+    {"id":43,"name":"Alles Techno","url":"http://stream.laut.fm/alles-techno","pais":"EUA"},
+    {"id":44,"name":"Alles Hardstyle","url":"http://stream.laut.fm/alles-hardstyle","pais":"EUA"},
+    {"id":45,"name":"Alles Klub","url":"http://stream.laut.fm/alles-klub","pais":"EUA"}
     ]
