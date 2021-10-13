@@ -1,0 +1,20 @@
+{
+  "name": "tauros",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Vitagliano/Tauros.git",
+  "scripts": {
+    "start": "node -r dotenv/config src/index",
+    "dev": "nodemon -r dotenv/config src/index"
+  },
+  "author": "Vitagliano",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "discord.js": "^13.2.0",
+    "dotenv": "^10.0.0",
+    "mongoose": "5.13.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
