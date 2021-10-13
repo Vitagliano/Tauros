@@ -13,9 +13,13 @@ module.exports = {
         `**Data de Criação ** `,
         `<t:${~~(new Date(client.user.createdAt).getTime() / 1000)}>`
       )
-      .addField(`**Guilds  **`, client.guilds.cache.size.toString())
+      .addField(`**Servidores  **`, client.guilds.cache.size.toString())
       .addField(`**Usuários  **`, client.users.cache.size.toString())
       .addField(`**Canais  **`, client.channels.cache.size.toString())
+      .addField(
+        `**RAM  **`,
+        `${parseInt(process.memoryUsage().rss / 1024 / 1024)}MB`
+      )
       .setFooter(
         `Requisitado por ${message.author.username}`,
         message.author.displayAvatarURL()
