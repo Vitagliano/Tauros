@@ -28,8 +28,28 @@ module.exports = {
       ) {
         message.reply(`Esse membro tem um cargo maior que o meu`);
       } else {
-        member.ban();
-        message.reply(`Sucesso em banir o membro: \`${member.user.tag}\``);
+        message
+          .reply(`Deseja banir o membro: \`${member.user.tag}\`?`)
+          .then((msg) => {
+            const filter = (reaction, user) => {
+              return (
+                reaction.emoji.name === '✅' && user.id === message.author.id
+              );
+            };
+
+            const collector = msg.createReactionCollector({
+              filter,
+              max: 1,
+              time: 6 * 1000
+            });
+
+            msg.react('✅');
+
+            collector.on('collect', () => {
+              member.ban();
+              msg.edit(`Sucesso em banir o membro: \`${member.user.tag}\``);
+            });
+          });
       }
     }
   }
