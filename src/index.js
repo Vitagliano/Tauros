@@ -6,7 +6,8 @@ const client = new Client({
     'GUILD_MESSAGES',
     'GUILD_MEMBERS',
     'GUILD_MESSAGE_REACTIONS',
-    'GUILD_PRESENCES'
+    'GUILD_PRESENCES',
+    'GUILD_VOICE_STATES'
   ],
   presence: {
     status: 'dnd'
