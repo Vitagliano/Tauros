@@ -39,14 +39,8 @@ module.exports = {
       .addField(`Username  `, user.username)
       .addField(`Nickname  `, `${member.displayName}`)
       .addField(`Status  `, presence.status[member.presence.status])
-      .addField(
-        `Data de Criação  `,
-        `<t:${~~(new Date(user.createdAt).getTime() / 1000)}>`
-      )
-      .addField(
-        `Entrou em `,
-        `<t:${~~(new Date(member.joinedAt).getTime() / 1000)}>`
-      )
+      .addField(`Data de Criação  `, `<t:${~~(user.createdTimestamp / 1000)}>`)
+      .addField(`Entrou em `, `<t:${~~(member.joinedTimestamp / 1000)}>`)
       .setFooter(
         `Requisitado por ${message.author.username}`,
         message.author.displayAvatarURL()

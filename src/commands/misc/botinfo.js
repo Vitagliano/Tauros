@@ -10,16 +10,14 @@ module.exports = {
       .setThumbnail(client.user.displayAvatarURL())
       .setColor('#f8f8f8')
       .addField(
-        `**Data de Criação ** `,
-        `<t:${~~(new Date(client.user.createdAt).getTime() / 1000)}>`
+        'Data de Criação',
+        `<t:${~~(client.user.createdTimestamp / 1000)}>`
       )
-      .addField(`**Servidores  **`, client.guilds.cache.size.toString())
-      .addField(`**Usuários  **`, client.users.cache.size.toString())
-      .addField(`**Canais  **`, client.channels.cache.size.toString())
-      .addField(
-        `**RAM  **`,
-        `${parseInt(process.memoryUsage().rss / 1024 / 1024)}MB`
-      )
+      .addField('Servidores', `${client.guilds.cache.size}`)
+      .addField('Usuários', `${client.users.cache.size}`)
+      .addField('Canais', `${client.channels.cache.size}`)
+      .addField('RAM', `${parseInt(process.memoryUsage().rss / 1024 / 1024)}MB`)
+      .addField('Uptime', `<t:${~~(client.readyTimestamp / 1000)}:R>`)
       .setFooter(
         `Requisitado por ${message.author.username}`,
         message.author.displayAvatarURL()
