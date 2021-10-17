@@ -1,15 +1,7 @@
 const Client = require('./Client');
 
 const client = new Client({
-  intents: [
-    'GUILDS',
-    'GUILD_MESSAGES',
-    'GUILD_MEMBERS',
-    'GUILD_MESSAGE_REACTIONS'
-  ],
-  presence: {
-    status: 'dnd'
-  }
+  intents: [32767]
 });
 
 client
