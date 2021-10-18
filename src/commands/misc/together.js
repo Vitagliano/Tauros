@@ -16,7 +16,7 @@ module.exports = {
     const voiceChannel = message.member.voice.channelId;
     if (!voiceChannel) return message.reply('Entre em um canal de voz');
 
-    if (!args[0])
+    if (!args[0] || !applications[args[0]])
       return message.reply(
         `Escolha entre \`${Object.keys(applications).join(', ')}\``
       );

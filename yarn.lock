@@ -13,6 +13,11 @@
     ts-mixer "^6.0.0"
     tslib "^2.3.1"
 
+"@discordjs/collection@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.1.6.tgz#9e9a7637f4e4e0688fd8b2b5c63133c91607682c"
+  integrity sha512-utRNxnd9kSS2qhyivo9lMlt5qgAUasH2gb7BEOn6p0efFh24gjGomHzWKMAPn2hEReOPQZCJaRKoURwRotKucQ==
+
 "@discordjs/collection@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.2.1.tgz#ea4bc7b41b7b7b6daa82e439141222ec95c469b2"
@@ -420,6 +425,15 @@ end-of-stream@^1.1.0:
   integrity sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==
   dependencies:
     once "^1.4.0"
+
+erela.js@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/erela.js/-/erela.js-2.3.3.tgz#22b43e29315c2fcdc8e070beda93eb3f34405c16"
+  integrity sha512-tzowGHLSodZr2j311csFSqm9lwE6plqeULTAwPwuRX9PQbXg4Ohdy/3MTMWrltiFAMSIG/5r9GQtTUt9Mqzhhw==
+  dependencies:
+    "@discordjs/collection" "^0.1.6"
+    petitio "^1.1.0"
+    ws "^7.3.1"
 
 escape-goat@^2.0.0:
   version "2.1.1"
@@ -864,6 +878,11 @@ package-json@^6.3.0:
     registry-url "^5.0.0"
     semver "^6.2.0"
 
+petitio@^1.1.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/petitio/-/petitio-1.4.0.tgz#1887cba89b95de2c61ef774a2f1baf68845ba022"
+  integrity sha512-9LaVd/5BLmbNU8Q4Ax8NezihiPt2ISNqi2vKilEchSSf+YSOXxfsLUb0SUmDskm1WkBOVTsqdyuyYI0RYKqr0Q==
+
 picomatch@^2.0.4, picomatch@^2.2.1:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
@@ -1210,6 +1229,11 @@ write-file-atomic@^3.0.0:
     is-typedarray "^1.0.0"
     signal-exit "^3.0.2"
     typedarray-to-buffer "^3.1.5"
+
+ws@^7.3.1:
+  version "7.5.5"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.5.tgz#8b4bc4af518cfabd0473ae4f99144287b33eb881"
+  integrity sha512-BAkMFcAzl8as1G/hArkxOxq3G7pjUqQ3gzYbLL0/5zNkph70e+lCoxBGnm6AW1+/aiNeV4fnKqZ8m4GZewmH2w==
 
 ws@^8.2.3:
   version "8.2.3"
