@@ -16,7 +16,7 @@ module.exports = (client) => {
     }
   })
     .on('nodeConnect', (node) =>
-      console.log(`Node "${node.options.identifier}" conectado.`)
+      console.log(`[LAVALINK] ${node.options.identifier} conectado.`)
     )
     .on('nodeError', (node, error) =>
       console.log(

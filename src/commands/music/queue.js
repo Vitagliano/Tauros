@@ -16,7 +16,12 @@ module.exports = {
 
     const embed = new MessageEmbed()
       .setTitle(`Fila de músicas do servidor`)
-      .setColor('#f8f8f8');
+      .setColor('#f8f8f8')
+      .setFooter(
+        `Requisitado por ${message.author.username}`,
+        message.author.displayAvatarURL()
+      )
+      .setTimestamp();
 
     const tracks = queue.slice(0, 10);
 
@@ -25,6 +30,7 @@ module.exports = {
         `Tocando agora:`,
         `[${queue.current.title}](${queue.current.uri})`
       );
+
     if (!tracks.length) embed.setDescription(`Não há nenhuma música na fila.`);
     else
       embed.setDescription(

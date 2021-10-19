@@ -35,17 +35,19 @@ module.exports = {
     const embed = new MessageEmbed()
       .setThumbnail(member.displayAvatarURL())
       .setColor('#f8f8f8')
-      .addField(`ID  `, member.id)
-      .addField(`Username  `, user.username)
-      .addField(`Nickname  `, `${member.displayName}`)
-      .addField(`Status  `, presence.status[member.presence.status])
-      .addField(`Data de Criação  `, `<t:${~~(user.createdTimestamp / 1000)}>`)
-      .addField(`Entrou em `, `<t:${~~(member.joinedTimestamp / 1000)}>`)
+      .addField(`ID`, member.id)
+      .addField(`Username`, user.username)
+      .addField(`Status`, presence.status[member.presence.status])
+      .addField(`Data de Criação`, `<t:${~~(user.createdTimestamp / 1000)}>`)
+      .addField(`Entrou em`, `<t:${~~(member.joinedTimestamp / 1000)}>`)
       .setFooter(
         `Requisitado por ${message.author.username}`,
         message.author.displayAvatarURL()
       )
       .setTimestamp();
+
+    if (member.displayName !== user.username)
+      embed.addField(`Nickname`, `${member.displayName}`);
 
     return message.reply({
       embeds: [embed]
