@@ -1,7 +1,21 @@
+const Guild = require('../../models/Guild');
+
 module.exports = async (client, message) => {
   if (message.author.bot || message.channel.type === 'dm') return;
 
-  const prefix = process.env.PREFIX;
+  const guild = await Guild.findOne({ _id: message.guild.id });
+  let prefix = process.env.PREFIX;
+
+  if (!guild) {
+    return new Guild({
+      _id: message.guild.id
+    }).save();
+  }
+
+  if (guild.prefix) {
+    prefix = guild.prefix;
+  }
+
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 

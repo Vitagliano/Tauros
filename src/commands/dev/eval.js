@@ -15,15 +15,14 @@ module.exports = {
     try {
       let evaled = await eval(code);
 
-      if (typeof evaled !== 'string') {
+      if (typeof evaled !== 'string')
         evaled = require('util').inspect(evaled, {
           depth: 0
         });
-      }
 
-      message.reply(`**📥 Resultado:**\n \`\`\`js\n${evaled}\`\`\``);
+      message.reply(` 📥 Resultado: \n \`\`\`js\n${evaled}\`\`\``);
     } catch (err) {
-      message.reply(`**📤 Erro:**\n \`\`\`js\n${err}\`\`\``);
+      message.reply(` 📤 Erro: \n \`\`\`js\n${err}\`\`\``);
     }
   }
 };

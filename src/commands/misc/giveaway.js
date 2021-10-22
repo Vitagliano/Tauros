@@ -64,7 +64,7 @@ module.exports = {
           const embedSucess = new MessageEmbed()
             .setTitle('🎉 SORTEIO ACABOU! 🎉')
             .setDescription(
-              `Parabéns **${randomUser}**, você ganhou: \`${sorting}\``
+              `Parabéns  ${randomUser} , você ganhou: \`${sorting}\``
             )
             .setColor('#f8f8f8')
             .setFooter(`ACABOU!`)

@@ -6,10 +6,9 @@ const schema = new Schema(
       type: String,
       required: true
     },
-    username: {
-      type: String,
-      required: true
-    }
+    prefix: String,
+    welcomeChannel: String,
+    goodbyeChannel: String
   },
   {
     versionKey: false,
@@ -17,4 +16,4 @@ const schema = new Schema(
   }
 );
 
-module.exports = model('User', schema);
+module.exports = model('Guild', schema);
