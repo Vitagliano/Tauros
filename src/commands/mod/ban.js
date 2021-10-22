@@ -9,12 +9,10 @@ module.exports = {
     const member = message.mentions.members.first();
 
     if (!message.guild.me.permissions.has(Permissions.FLAGS.BAN_MEMBERS))
-      return message.reply('Não tenho permissão de `banir membros`');
+      return message.reply('Não tenho permissão de `Banir Membros`');
 
     if (!message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS))
-      return message.reply(
-        `${member.user.username} Você não tem a permissão de \`banir membros\``
-      );
+      return message.reply('Você não tem a permissão de `Banir Membros`');
 
     if (!member) return message.reply('Mencione um membro para ser banido');
 

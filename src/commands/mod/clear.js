@@ -6,15 +6,11 @@ module.exports = {
     aliases: ['limpar']
   },
   run: async (client, message, args) => {
-    const member = message.mentions.members.first();
-
     if (!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))
-      return message.reply('Não tenho permissão de `gerenciar mensagens`');
+      return message.reply('Não tenho permissão de `Gerenciar Mensagens`');
 
     if (!message.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))
-      return message.reply(
-        `${member.user.tag} Você não tem a permissão de \`gerenciar mensagens\``
-      );
+      return message.reply('Você não tem a permissão de `Gerenciar Mensagens`');
 
     const amount = parseInt(args[0]);
 
