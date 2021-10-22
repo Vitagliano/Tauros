@@ -6,10 +6,7 @@ module.exports = {
     aliases: []
   },
   run: async (client, message, args) => {
-    let user =
-      message.mentions.users.first() ||
-      (await message.guild.members.fetch(args[0])).user ||
-      message.author;
+    let user = message.mentions.users.first() || message.author;
 
     const embed = new MessageEmbed()
       .setAuthor(`Avatar de ${user.username}`)
