@@ -28,13 +28,13 @@ module.exports = {
     const member = guild.members.cache.get(user.id);
 
     const embed = new MessageEmbed()
+      .setTitle('Informações do membro')
       .setThumbnail(user.displayAvatarURL())
       .setColor('#f8f8f8')
       .addField(`ID`, user.id, true)
       .addField(`Username`, user.username, true)
       .addField(`Status`, presence.status[member.presence.status])
       .addField(`Data de Criação`, `<t:${~~(user.createdTimestamp / 1000)}>`)
-      .addField(`Entrou em`, `<t:${~~(member.joinedTimestamp / 1000)}>`)
       .setFooter(
         `Requisitado por ${message.author.username}`,
         message.author.displayAvatarURL()
