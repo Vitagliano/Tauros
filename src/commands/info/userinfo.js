@@ -9,12 +9,10 @@ const presence = {
     online: 'Online'
   },
   activity: {
-    type: {
-      PLAYING: 'Jogando',
-      LISTENING: 'Ouvindo',
-      WATCHING: 'Assistindo',
-      STREAMING: 'Streamando'
-    }
+    PLAYING: 'Jogando',
+    LISTENING: 'Ouvindo',
+    WATCHING: 'Assistindo',
+    STREAMING: 'Streamando'
   }
 };
 
@@ -24,22 +22,19 @@ module.exports = {
     aliases: ['user']
   },
   run: async (client, message, args) => {
-    const user =
-      message.mentions.users.first() ||
-      (await message.guild.members.fetch(args[0])).user ||
-      message.author;
+    const user = message.mentions.users.first() || message.author;
 
     const guild = client.guilds.cache.get(message.guild.id);
     const member = guild.members.cache.get(user.id);
 
     const embed = new MessageEmbed()
-      .setThumbnail(member.displayAvatarURL())
+      .setTitle('Informações do membro')
+      .setThumbnail(user.displayAvatarURL())
       .setColor('#f8f8f8')
-      .addField(`ID`, member.id)
-      .addField(`Username`, user.username)
+      .addField(`ID`, user.id, true)
+      .addField(`Username`, user.username, true)
       .addField(`Status`, presence.status[member.presence.status])
       .addField(`Data de Criação`, `<t:${~~(user.createdTimestamp / 1000)}>`)
-      .addField(`Entrou em`, `<t:${~~(member.joinedTimestamp / 1000)}>`)
       .setFooter(
         `Requisitado por ${message.author.username}`,
         message.author.displayAvatarURL()
@@ -48,6 +43,19 @@ module.exports = {
 
     if (member.displayName !== user.username)
       embed.addField(`Nickname`, `${member.displayName}`);
+
+    let activity = member.presence.activities[0];
+
+    if (activity) {
+      if (activity.type === 'CUSTOM') activity = member.presence.activities[1];
+      if (!activity) return;
+
+      embed.addField(
+        'Atividade',
+        `${presence.activity[activity.type]} ${activity.name}`,
+        true
+      );
+    }
 
     return message.reply({
       embeds: [embed]
