@@ -2,27 +2,23 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   config: {
-    name: 'avatar',
-    aliases: []
+    name: 'servericon',
+    aliases: ['guildicon', 'icon']
   },
   run: async (client, message, args) => {
-    const user = message.mentions.users.first() || message.author;
-
     const embed = new MessageEmbed()
-      .setTitle(`Avatar de ${user.username}`)
-      .setDescription(
-        `Clique [aqui](${user.displayAvatarURL({
-          size: 1024,
-          dynamic: true
-        })}) para baixar a imagem!`
-      )
-      .setImage(user.displayAvatarURL({ size: 1024, dynamic: true }))
       .setColor('#f8f8f8')
       .setFooter(
         `Requisitado por ${message.author.username}`,
         message.author.displayAvatarURL()
       )
       .setTimestamp();
+
+    if (message.guild.iconURL())
+      embed
+        .setTitle('Ícone do servidor')
+        .setImage(message.guild.iconURL({ size: 1024, dynamic: true }));
+    else embed.setTitle('Servidor sem ícone');
 
     message.reply({
       embeds: [embed]
