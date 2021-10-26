@@ -5,7 +5,9 @@
   "repository": "https://github.com/Vitagliano/Tauros.git",
   "scripts": {
     "start": "node -r dotenv/config src/index",
-    "dev": "nodemon -r dotenv/config src/index"
+    "dev": "nodemon -r dotenv/config src/index",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "Vitagliano",
   "license": "GPL-3.0",
@@ -18,6 +20,11 @@
     "ms": "^2.1.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "nodemon": "^2.0.13",
+    "prettier-eslint": "^13.0.0"
   }
 }
