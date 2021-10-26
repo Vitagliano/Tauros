@@ -6,14 +6,16 @@ module.exports = {
   run: async (client, message, args) => {
     if (!message.member.voice.channel)
       return message.reply({
-        content: `Você precisa estar em um canal de voz para utilizar este comando!`
+        content:
+          'Você precisa estar em um canal de voz para utilizar este comando!'
       });
     if (
       message.guild.me.voice.channel &&
       message.guild.me.voice.channel.id !== message.member.voice.channel.id
     )
       return message.reply({
-        content: `Você precisa estar no mesmo canal de voz que eu para utilizar este comando!`
+        content:
+          'Você precisa estar no mesmo canal de voz que eu para utilizar este comando!'
       });
 
     const search = args.join(' ');
@@ -26,6 +28,7 @@ module.exports = {
 
       if (res.loadType === 'LOAD_FAILED') throw res.exception;
       else if (res.loadType === 'PLAYLIST_LOADED')
+        // eslint-disable-next-line no-throw-literal
         throw { message: 'Playlists não são suportadas neste comando.' };
     } catch (err) {
       return message.reply({
@@ -35,7 +38,7 @@ module.exports = {
 
     if (!res?.tracks?.[0])
       return message.reply({
-        content: `Música não encontrada!`
+        content: 'Música não encontrada!'
       });
 
     const player = client.manager.create({

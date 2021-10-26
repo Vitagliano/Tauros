@@ -15,11 +15,11 @@ module.exports = {
       .addField('Dono', `<@${message.guild.ownerId}>`)
       .addField('Membros', message.guild.memberCount.toString())
       .addField(
-        `Data de Criação`,
+        'Data de Criação',
         `<t:${~~(message.guild.createdTimestamp / 1000)}>`
       )
       .addField(
-        `Você entrou em`,
+        'Você entrou em',
         `<t:${~~(message.member.joinedTimestamp / 1000)}>`
       )
       .setFooter(

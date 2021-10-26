@@ -1,5 +1,6 @@
-const Guild = require('../../models/Guild');
 const { Permissions } = require('discord.js');
+const Guild = require('../../models/Guild');
+
 module.exports = {
   config: {
     name: 'setprefix',

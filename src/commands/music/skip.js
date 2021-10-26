@@ -25,7 +25,7 @@ module.exports = {
         content: 'Não tem nenhuma música tocando.'
       });
 
-    const title = player.queue.current.title;
+    const {title} = player.queue.current;
 
     player.stop();
     message.reply({

@@ -31,10 +31,9 @@ module.exports = {
       .setTitle('Informações do membro')
       .setThumbnail(user.displayAvatarURL())
       .setColor('#f8f8f8')
-      .addField(`ID`, user.id, true)
-      .addField(`Username`, user.username, true)
-      .addField(`Status`, presence.status[member.presence.status])
-      .addField(`Data de Criação`, `<t:${~~(user.createdTimestamp / 1000)}>`)
+      .addField('ID', user.id, true)
+      .addField('Username', user.username, true)
+      .addField('Data de Criação', `<t:${~~(user.createdTimestamp / 1000)}>`)
       .setFooter(
         `Requisitado por ${message.author.username}`,
         message.author.displayAvatarURL()
@@ -42,19 +41,25 @@ module.exports = {
       .setTimestamp();
 
     if (member.displayName !== user.username)
-      embed.addField(`Nickname`, `${member.displayName}`);
+      embed.addField('Nickname', `${member.displayName}`);
 
-    let activity = member.presence.activities[0];
+    if (member.presence) {
+      embed.addField('Status', presence.status[member.presence.status]);
 
-    if (activity) {
-      if (activity.type === 'CUSTOM') activity = member.presence.activities[1];
-      if (!activity) return;
+      let activity = member.presence.activities[0];
 
-      embed.addField(
-        'Atividade',
-        `${presence.activity[activity.type]} ${activity.name}`,
-        true
-      );
+      if (activity) {
+        if (activity.type === 'CUSTOM')
+          // eslint-disable-next-line prefer-destructuring
+          activity = member.presence.activities[1];
+        if (!activity) return;
+
+        embed.addField(
+          'Atividade',
+          `${presence.activity[activity.type]} ${activity.name}`,
+          true
+        );
+      }
     }
 
     return message.reply({
