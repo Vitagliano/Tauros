@@ -13,7 +13,7 @@ module.exports = {
 
     if (!message.member.voice.channel)
       return message.reply({
-        content: `Você precisa estar em um canal de voz para utilizar este comando!`
+        content: 'Você precisa estar em um canal de voz para utilizar este comando!'
       });
 
     if (
@@ -21,7 +21,7 @@ module.exports = {
       message.guild.me.voice.channel.id !== message.member.voice.channel.id
     )
       return message.reply({
-        content: `Você precisa estar no mesmo canal de voz que eu para utilizar este comando!`
+        content: 'Você precisa estar no mesmo canal de voz que eu para utilizar este comando!'
       });
 
     if (!args.length)

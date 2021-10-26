@@ -6,7 +6,7 @@ module.exports = (client) => {
       f.endsWith('.js')
     );
 
-    for (let file of commands) {
+    for (const file of commands) {
       const command = require(`../commands/${dirs}/${file}`);
       client.commands.set(command.config.name, command);
 
@@ -16,5 +16,5 @@ module.exports = (client) => {
         );
     }
   };
-  readdirSync(`./src/commands/`).forEach((x) => load(x));
+  readdirSync('./src/commands/').forEach((x) => load(x));
 };

@@ -24,16 +24,14 @@ module.exports = {
         member.roles.highest.rawPosition >=
         message.guild.me.roles.highest.rawPosition
       ) {
-        message.reply(`Esse membro tem um cargo maior que o meu`);
+        message.reply('Esse membro tem um cargo maior que o meu');
       } else {
         message
           .reply(`Deseja expulsar o membro: \`${member.user.tag}\`?`)
           .then((msg) => {
-            const filter = (reaction, user) => {
-              return (
-                reaction.emoji.name === '✅' && user.id === message.author.id
-              );
-            };
+            const filter = (reaction, user) => (
+              reaction.emoji.name === '✅' && user.id === message.author.id
+            );
 
             const collector = msg.createReactionCollector({
               filter,

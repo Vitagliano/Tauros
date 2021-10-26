@@ -6,12 +6,12 @@ module.exports = (client) => {
       f.endsWith('.js')
     );
 
-    for (let file of events) {
+    for (const file of events) {
       const event = require(`../events/${dirs}/${file}`);
-      let eventName = file.split('.')[0];
+      const eventName = file.split('.')[0];
 
       client.on(eventName, event.bind(null, client));
     }
   };
-  readdirSync(`./src/events/`).forEach((x) => load(x));
+  readdirSync('./src/events/').forEach((x) => load(x));
 };

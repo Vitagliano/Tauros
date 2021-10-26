@@ -25,6 +25,7 @@
     "no-unused-expressions": "off",
     "class-methods-use-this": "off",
     "import/no-dynamic-require": "off",
-    "no-return-assign": "off"
+    "no-return-assign": "off",
+    "no-bitwise": "off"
   }
 }

@@ -12,7 +12,7 @@ module.exports = {
     if (!message.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))
       return message.reply('Você não tem a permissão de `Gerenciar Mensagens`');
 
-    const amount = parseInt(args[0]);
+    const amount = parseInt(args[0], 10);
 
     if (!amount)
       return message.reply(

@@ -12,10 +12,10 @@ module.exports = {
         content: 'Não estou tocando neste servidor.'
       });
 
-    const queue = player.queue;
+    const {queue} = player;
 
     const embed = new MessageEmbed()
-      .setTitle(`Fila de músicas do servidor`)
+      .setTitle('Fila de músicas do servidor')
       .setColor('#f8f8f8')
       .setFooter(
         `Requisitado por ${message.author.username}`,
@@ -27,17 +27,15 @@ module.exports = {
 
     if (queue.current)
       embed.addField(
-        `Tocando agora:`,
+        'Tocando agora:',
         `[${queue.current.title}](${queue.current.uri})`
       );
 
-    if (!tracks.length) embed.setDescription(`Não há nenhuma música na fila.`);
+    if (!tracks.length) embed.setDescription('Não há nenhuma música na fila.');
     else
       embed.setDescription(
         tracks
-          .map((t, i) => {
-            return `${i + 1} - [${t.title}](${t.uri})`;
-          })
+          .map((t, i) => `${i + 1} - [${t.title}](${t.uri})`)
           .join('\n')
       );
 
