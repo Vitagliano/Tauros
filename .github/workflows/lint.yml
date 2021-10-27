@@ -5,7 +5,7 @@ on:
   - pull_request
 
 jobs:
-  test:
+  linting:
     name: Lint
     runs-on: ubuntu-latest
     steps:
@@ -16,5 +16,5 @@ jobs:
           node-version: '16'
       - name: Install Dependencies
         run: yarn install
-      - name: EsLint
+      - name: ESLint
         run: yarn run lint

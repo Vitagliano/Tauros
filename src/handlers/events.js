@@ -1,8 +1,8 @@
 const { readdirSync } = require('fs');
 
-module.exports = (client) => {
-  const load = (dirs) => {
-    const events = readdirSync(`./src/events/${dirs}/`).filter((f) =>
+module.exports = client => {
+  const load = dirs => {
+    const events = readdirSync(`./src/events/${dirs}/`).filter(f =>
       f.endsWith('.js')
     );
 
@@ -13,5 +13,5 @@ module.exports = (client) => {
       client.on(eventName, event.bind(null, client));
     }
   };
-  readdirSync('./src/events/').forEach((x) => load(x));
+  readdirSync('./src/events/').forEach(x => load(x));
 };

@@ -3,13 +3,13 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   config: {
     name: 'botinfo',
-    aliases: ['bot']
+    description: 'Informações do bot'
   },
-  run: async (client, message, args) => {
+  run: async (client, interaction) => {
     const embed = new MessageEmbed()
       .setThumbnail(client.user.displayAvatarURL())
       .setColor('#f8f8f8')
-      .setTitle('Informações do membro')
+      .setTitle('Informações do bot')
       .addField(
         'Data de Criação',
         `<t:${~~(client.user.createdTimestamp / 1000)}>`
@@ -23,12 +23,12 @@ module.exports = {
       )
       .addField('Uptime', `<t:${~~(client.readyTimestamp / 1000)}:R>`)
       .setFooter(
-        `Requisitado por ${message.author.username}`,
-        message.author.displayAvatarURL()
+        `Requisitado por ${interaction.user.username}`,
+        interaction.user.displayAvatarURL()
       )
       .setTimestamp();
 
-    message.reply({
+    interaction.reply({
       embeds: [embed]
     });
   }
