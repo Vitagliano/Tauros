@@ -11,8 +11,10 @@ module.exports = class extends Client {
   }
 
   loadHandlers() {
-    ['commands', 'aliases'].forEach((f) => (this[f] = new Collection()));
-    ['commands', 'events'].forEach((f) => require(`./handlers/${f}`)(this));
+    ['commands', 'aliases', 'slash'].forEach(f => (this[f] = new Collection()));
+    ['commands', 'events', 'slash'].forEach(f =>
+      require(`./handlers/${f}`)(this)
+    );
   }
 
   connectDatabase() {
